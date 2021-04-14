@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EA1010">
+    android:background="#6CB6CD">
 
     <TextView
         android:id="@+id/splashText"
