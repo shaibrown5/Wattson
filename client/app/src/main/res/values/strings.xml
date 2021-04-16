@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Wattson</string>
+    <string name="welcome_to_">Welcome to Wattson!</string>
 </resources>
