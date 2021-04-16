@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E4E4E4"
+    tools:context=".LoginActivity"
+    tools:visibility="visible">
+
+    <EditText
+        android:id="@+id/loginUserName"
+        android:layout_width="292dp"
+        android:layout_height="51dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_email_icon"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.899" />
+
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="292dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_password_icon"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/rememberMeCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <CheckBox
+        android:id="@+id/rememberMeCheck"
+        android:layout_width="154dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="64dp"
+        android:fontFamily="@font/assistant_regular"
+        android:shadowColor="#D32222"
+        android:text="Remember me"
+        android:textColor="#0B1E83"
+        android:textSize="18sp"
+        app:buttonTint="#0B1E83"
+        app:layout_constraintBottom_toTopOf="@+id/logInButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/logInButton"
+        android:layout_width="187dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/round_border"
+        android:fontFamily="@font/assistant_regular"
+        android:text="Log In"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#0B1E83"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/assistant_regular"
+        android:text="Don't have an account?"
+        android:textColor="#0B1E83"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/signUpTExt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/signUpTExt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="148dp"
+        android:fontFamily="@font/assistant_regular"
+        android:text="Create a new one"
+        android:textColor="#0B1E83"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "919426035765",
+    "firebase_url": "https://wattson-87996-default-rtdb.firebaseio.com",
+    "project_id": "wattson-87996",
+    "storage_bucket": "wattson-87996.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919426035765:android:5cacfc107527533d10417c",
+        "android_client_info": {
+          "package_name": "com.example.wattson"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919426035765-anbt3rvkkntfrqkv6s5fg73ognv8r17b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wattson",
+            "certificate_hash": "86f5eb0af9f55faaa67b8c272a4b58cd9ca56980"
+          }
+        },
+        {
+          "client_id": "919426035765-juedu47lpj4n0ppgm26tomd1pjbv75pj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgWH4_L7rap3_FXI1T2TKwmdGrqEXunaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919426035765-juedu47lpj4n0ppgm26tomd1pjbv75pj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.splash_screen);
 
 
-        /****** Create Thread that will sleep for 5 seconds****/
+        /** Create Thread that will sleep for 5 seconds**/
         Thread background = new Thread() {
             public void run() {
                 try {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     //Remove activity
                     finish();
                 } catch (Exception e) {
+                    Log.e("[SPLASH THREAD]", e.toString());
                 }
             }
         };
