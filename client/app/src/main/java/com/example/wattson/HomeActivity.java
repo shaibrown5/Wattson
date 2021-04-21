@@ -1,4 +1,5 @@
 package com.example.wattson;
+//https://github.com/oneHamidreza/MeowBottomNavigationJava
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
-public class HomePage extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     MeowBottomNavigation bottomNavigation;
     private static final String TAG = "HomePage";

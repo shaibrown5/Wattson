@@ -1,11 +1,9 @@
 package com.example.wattson;
 
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.concurrent.TimeUnit;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
                     sleep(5*1000);
 
                     // After 5 seconds redirect to another intent
-                    Intent intent = new Intent(getApplicationContext(),HomePage.class);
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
 
                     //Remove activity
