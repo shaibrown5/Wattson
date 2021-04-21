@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4E4E4"
+    android:background="@color/background_gray"
     tools:context=".LoginActivity"
     tools:visibility="visible">
 
@@ -21,8 +21,8 @@
         app:layout_constraintBottom_toTopOf="@+id/loginPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLogIn"
+        app:layout_constraintVertical_bias="0.59" />
 
     <EditText
         android:id="@+id/loginPassword"
@@ -37,7 +37,6 @@
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/rememberMeCheck"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -52,7 +51,7 @@
         android:text="Remember me"
         android:textColor="#0B1E83"
         android:textSize="18sp"
-        app:buttonTint="#0B1E83"
+        app:buttonTint="@color/background_blue"
         app:layout_constraintBottom_toTopOf="@+id/logInButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.165"
@@ -68,7 +67,7 @@
         android:text="Log In"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:backgroundTint="#0B1E83"
+        app:backgroundTint="@color/background_blue"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -81,7 +80,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/assistant_regular"
         android:text="Don't have an account?"
-        android:textColor="#0B1E83"
+        android:textColor="@color/background_blue"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/signUpTExt"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,11 +93,26 @@
         android:layout_marginBottom="148dp"
         android:fontFamily="@font/assistant_regular"
         android:text="Create a new one"
-        android:textColor="#0B1E83"
+        android:textColor="@color/background_blue"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewLogIn"
+        android:layout_width="160dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/assistant_regular"
+        android:gravity="center"
+        android:text="Log In"
+        android:textColor="@color/background_blue"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
