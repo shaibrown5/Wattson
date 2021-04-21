@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4E4E4"
+    android:background="@color/background_gray"
     tools:context=".LoginActivity"
     tools:visibility="visible">
 
@@ -107,7 +107,7 @@
         android:layout_marginTop="68dp"
         android:fontFamily="@font/assistant_regular"
         android:gravity="center"
-        android:text=" Log In"
+        android:text="Log In"
         android:textColor="@color/background_blue"
         android:textSize="36sp"
         android:textStyle="bold"

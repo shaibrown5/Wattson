@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="setting_label_list">
+        <item>User:</item>
+        <item>Currency:</item>
+        <item>My devices</item>
+        <item>Notification</item>
+        <item>Terms and conditions</item>
+        <item>Help center</item>
+    </string-array>
+
+
+</resources>
