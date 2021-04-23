@@ -10,5 +10,12 @@
         <item>Help center</item>
     </string-array>
 
+    <string-array name="utility_header_list">
+        <item>Number of activations</item>
+        <itams>Total time of use</itams>
+        <item>Avg cast per use</item>
+    </string-array>
+
+
 
 </resources>
