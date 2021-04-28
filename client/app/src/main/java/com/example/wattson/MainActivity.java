@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
                     sleep(5*1000);
 
                     // After 5 seconds redirect to another intent
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
 
                     //Remove activity

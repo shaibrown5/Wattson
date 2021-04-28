@@ -15,7 +15,7 @@
         android:background="@drawable/round_border"
         android:drawableStart="@drawable/ic_email_icon"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email"
         android:inputType="textPersonName"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/loginPassword"
