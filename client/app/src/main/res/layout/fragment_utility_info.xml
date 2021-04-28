@@ -102,7 +102,7 @@
                 android:fontFamily="@font/assistant_regular"
                 android:gravity="center"
                 android:text="DAY"
-                android:textColor="@color/font_gray"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/textViewWeek"
                 app:layout_constraintHorizontal_bias="0.156"

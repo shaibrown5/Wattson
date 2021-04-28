@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +31,7 @@ public class UtilityInfoFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    TextView m_backArrow;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -70,7 +72,10 @@ public class UtilityInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_utility_info, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_utility_info, container, false);
+
+        m_backArrow = (TextView) getView().findViewById(R.id.textViewutilCardBackArrow);
+        return rootView;
     }
 
     @Override
@@ -92,5 +97,21 @@ public class UtilityInfoFragment extends Fragment {
         //TODO THIS MAKES STUFF INVISIBLE
         //t.setVisibility(View.INVISIBLE);
         t.setVisibility(View.VISIBLE);
+
+
+
+        // Go back to the Home Page
+        m_backArrow.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View view){
+                Fragment someFragment = new HomeFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, someFragment ); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
+            }
+        });
+
+
     }
 }

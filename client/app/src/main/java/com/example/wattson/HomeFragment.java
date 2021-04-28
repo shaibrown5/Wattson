@@ -1,12 +1,24 @@
 package com.example.wattson;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +31,9 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    EditText editTextName;
+    Button addButton;
+    DatabaseReference databaseTest;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -53,12 +68,65 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        databaseTest = FirebaseDatabase.getInstance().getReference("person");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        //return inflater.inflate(R.layout.fragment_home, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        return rootView;
     }
-}
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        TextView t = (TextView) getView().findViewById(R.id.CardGoToArrow1);
+
+        t.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View view){
+                Fragment someFragment = new UtilityInfoFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, someFragment ); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
+            }
+        });
+
+    }
+//
+//    public void addInfoToDB(){
+//        String info = editTextName.getText().toString().trim();
+//
+//        // if not empty store to firebase
+//        if(!TextUtils.isEmpty(info)){
+//            String id = databaseTest.push().getKey();
+//            Person per = new Person(info);
+//            databaseTest.child("what").child("Person").setValue(per);
+//            Toast.makeText(getContext(), "artist added", Toast.LENGTH_SHORT).show();
+//        }else{
+//            Toast.makeText(getContext(), "no null infdo", Toast.LENGTH_SHORT).show();
+//        }
+    }
+
+
+//    private class Person{
+//        String name;
+//
+//        public Person(String name){
+//            this.name = name;
+//        }
+//
+//        public String getPersonName(){
+//            return name;
+//        }
+//    }
+//}
+
