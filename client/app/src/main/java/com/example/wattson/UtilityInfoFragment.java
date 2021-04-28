@@ -1,10 +1,10 @@
 package com.example.wattson;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,8 +18,6 @@ import android.widget.TextView;
 import com.example.wattson.Adapter.UtilityAdapter;
 import com.example.wattson.utils.SpacingItemDecorator;
 
-import org.w3c.dom.Text;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link UtilityInfoFragment#newInstance} factory method to
@@ -32,6 +30,10 @@ public class UtilityInfoFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     TextView m_backArrow;
+    TextView m_Day;
+    TextView m_Week;
+    TextView m_Month;
+    TextView m_Year;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -73,14 +75,19 @@ public class UtilityInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_utility_info, container, false);
-
-        m_backArrow = (TextView) getView().findViewById(R.id.textViewutilCardBackArrow);
         return rootView;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        m_backArrow = (TextView) getView().findViewById(R.id.UtilBackArrow);
+        m_Day = (TextView) getView().findViewById(R.id.textViewDay);
+        m_Week = (TextView) getView().findViewById(R.id.textViewWeek);
+        m_Month= (TextView) getView().findViewById(R.id.textViewMonth);
+        m_Year = (TextView) getView().findViewById(R.id.textViewYear);
+
+        m_Day.setClickable(false);
 
         String[] values = {"Shai", "Brown", "yo"};
         String[] labels = getResources().getStringArray(R.array.utility_header_list);
@@ -112,6 +119,65 @@ public class UtilityInfoFragment extends Fragment {
             }
         });
 
+        //change to day view
+        m_Day.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setUpTimeMeasurementBar();
+                m_Day.setTextColor(Color.BLACK);
+                m_Day.setClickable(false);
 
+            }
+        });
+
+        //change to week view
+        m_Week.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setUpTimeMeasurementBar();
+                m_Week.setTextColor(Color.BLACK);
+                m_Week.setClickable(false);
+
+            }
+        });
+
+        //change to month view
+        m_Month.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setUpTimeMeasurementBar();
+                m_Month.setTextColor(Color.BLACK);
+                m_Month.setClickable(false);
+
+            }
+        });
+
+        //change to year view
+        m_Year.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setUpTimeMeasurementBar();
+                m_Year.setTextColor(Color.BLACK);
+                m_Year.setClickable(false);
+
+            }
+        });
+
+    }
+
+    /**
+     * set up the measurements bar
+     */
+    private void setUpTimeMeasurementBar(){
+        //changing the current color
+        m_Day.setTextColor(getResources().getColor(R.color.font_gray));
+        m_Week.setTextColor(getResources().getColor(R.color.font_gray));
+        m_Month.setTextColor(getResources().getColor(R.color.font_gray));
+        m_Year.setTextColor(getResources().getColor(R.color.font_gray));
+
+        m_Day.setClickable(true);
+        m_Week.setClickable(true);
+        m_Month.setClickable(true);
+        m_Year.setClickable(true);
     }
 }

@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_home, container, false);
+
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment {
                 Fragment someFragment = new UtilityInfoFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, someFragment ); // give your fragment container id in first parameter
-                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                //transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
                 transaction.commit();
             }
         });
