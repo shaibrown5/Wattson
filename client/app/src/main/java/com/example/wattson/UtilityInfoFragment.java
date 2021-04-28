@@ -2,11 +2,21 @@ package com.example.wattson;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.wattson.Adapter.UtilityAdapter;
+import com.example.wattson.utils.SpacingItemDecorator;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +70,26 @@ public class UtilityInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_utility_info, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        String[] values = {"Shai", "Brown", "yo"};
+        String[] labels = getResources().getStringArray(R.array.utility_header_list);
+
+        RecyclerView rView = (RecyclerView)getView().findViewById(R.id.recycleViewUtility);
+        UtilityAdapter myAdapter = new UtilityAdapter(getContext(), labels, values);
+        rView.setAdapter(myAdapter);
+        rView.setLayoutManager(new LinearLayoutManager(getContext()));
+        // change this to create a larger margin between the items in recycle view
+        SpacingItemDecorator itemDecor = new SpacingItemDecorator(50);
+        rView.addItemDecoration(itemDecor);
+
+        TextView t = (TextView) getView().findViewById(R.id.textViewOnUtilityPage);
+        //t.setVisibility(View.INVISIBLE);
+        t.setVisibility(View.VISIBLE);
+
     }
 }
