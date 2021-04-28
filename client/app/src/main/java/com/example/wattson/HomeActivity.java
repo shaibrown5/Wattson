@@ -1,8 +1,11 @@
 package com.example.wattson;
 //https://github.com/oneHamidreza/MeowBottomNavigationJava
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
                 switch (item.getId()){
                     case 1:
                         fragment = new HomeFragment();
+                        //fragment = new UtilityInfoFragment();
                         break;
                     case 2:
                         fragment = new TodaysActivityFragment();

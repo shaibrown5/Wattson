@@ -3,6 +3,8 @@ package com.example.wattson;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -67,11 +69,17 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
+        return inflater.inflate(R.layout.fragment_settings, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         String[] values = {"Shai Brown", "USD $", "-1", "-1", "-1", "-1"};
         String[] labels = getResources().getStringArray(R.array.setting_label_list);
 
-        RecyclerView rView = (RecyclerView)rootView.findViewById(R.id.recyclerViewSetting);
+        RecyclerView rView = (RecyclerView)getView().findViewById(R.id.recyclerViewSetting);
         SettingsAdapter myAdapter = new SettingsAdapter(getContext(), labels, values );
         rView.setAdapter(myAdapter);
         rView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -79,7 +87,7 @@ public class SettingsFragment extends Fragment {
         SpacingItemDecorator itemDecor = new SpacingItemDecorator(50);
         rView.addItemDecoration(itemDecor);
 
-        logOutButton = (Button) rootView.findViewById(R.id.buttonLogOut);
+        logOutButton = (Button) getView().findViewById(R.id.buttonLogOut);
 
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +96,5 @@ public class SettingsFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-        return rootView;
     }
 }

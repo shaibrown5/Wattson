@@ -1,45 +1,43 @@
 package com.example.wattson;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.wattson.Adapter.UtilityAdapter;
+import com.example.wattson.utils.SpacingItemDecorator;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link UtilityInfoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class UtilityInfoFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    EditText editTextName;
-    Button addButton;
-    DatabaseReference databaseTest;
+    TextView m_backArrow;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment() {
+    public UtilityInfoFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +47,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment UtilityInfoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static UtilityInfoFragment newInstance(String param1, String param2) {
+        UtilityInfoFragment fragment = new UtilityInfoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,18 +66,15 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        databaseTest = FirebaseDatabase.getInstance().getReference("person");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_utility_info, container, false);
 
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
+        m_backArrow = (TextView) getView().findViewById(R.id.textViewutilCardBackArrow);
         return rootView;
     }
 
@@ -87,12 +82,29 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView t = (TextView) getView().findViewById(R.id.CardGoToArrow1);
+        String[] values = {"Shai", "Brown", "yo"};
+        String[] labels = getResources().getStringArray(R.array.utility_header_list);
 
-        t.setOnClickListener(new View.OnClickListener(){
+        RecyclerView rView = (RecyclerView)getView().findViewById(R.id.recycleViewUtility);
+        UtilityAdapter myAdapter = new UtilityAdapter(getContext(), labels, values);
+        rView.setAdapter(myAdapter);
+        rView.setLayoutManager(new LinearLayoutManager(getContext()));
+        // change this to create a larger margin between the items in recycle view
+        SpacingItemDecorator itemDecor = new SpacingItemDecorator(50);
+        rView.addItemDecoration(itemDecor);
+
+        TextView t = (TextView) getView().findViewById(R.id.textViewOnUtilityPage);
+        //TODO THIS MAKES STUFF INVISIBLE
+        //t.setVisibility(View.INVISIBLE);
+        t.setVisibility(View.VISIBLE);
+
+
+
+        // Go back to the Home Page
+        m_backArrow.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View view){
-                Fragment someFragment = new UtilityInfoFragment();
+                Fragment someFragment = new HomeFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, someFragment ); // give your fragment container id in first parameter
                 transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
@@ -100,33 +112,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
     }
-//
-//    public void addInfoToDB(){
-//        String info = editTextName.getText().toString().trim();
-//
-//        // if not empty store to firebase
-//        if(!TextUtils.isEmpty(info)){
-//            String id = databaseTest.push().getKey();
-//            Person per = new Person(info);
-//            databaseTest.child("what").child("Person").setValue(per);
-//            Toast.makeText(getContext(), "artist added", Toast.LENGTH_SHORT).show();
-//        }else{
-//            Toast.makeText(getContext(), "no null infdo", Toast.LENGTH_SHORT).show();
-//        }
-    }
-
-
-//    private class Person{
-//        String name;
-//
-//        public Person(String name){
-//            this.name = name;
-//        }
-//
-//        public String getPersonName(){
-//            return name;
-//        }
-//    }
-//}
-
+}
