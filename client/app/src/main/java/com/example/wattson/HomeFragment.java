@@ -6,19 +6,36 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.wattson.Adapter.HomeRecyclerView_Config;
+import com.example.wattson.utils.FirebaseDBUtils;
+import com.example.wattson.utils.SpacingItemDecorator;
+import com.example.wattson.utils.UtilCard;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.crypto.AEADBadTagException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,9 +48,11 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    EditText editTextName;
+    TextView m_labelCard1;
+    TextView m_priceCard1;
     Button addButton;
     DatabaseReference databaseTest;
+    List<UtilCard> m_utilCardList;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -69,7 +88,7 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        databaseTest = FirebaseDatabase.getInstance().getReference("person");
+        databaseTest = FirebaseDatabase.getInstance().getReference().child("UsersData").child("Node1");
     }
 
     @Override
@@ -79,7 +98,7 @@ public class HomeFragment extends Fragment {
 
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
+        m_utilCardList = new ArrayList<>();
         return rootView;
     }
 
@@ -88,6 +107,9 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         TextView t = (TextView) getView().findViewById(R.id.CardGoToArrow1);
+        m_labelCard1 = (TextView) getView().findViewById(R.id.labelCard1);
+        m_priceCard1 = (TextView) getView().findViewById(R.id.priceCard1);
+        ArrayList<String> list = new ArrayList<>();
 
         t.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -99,6 +121,42 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
             }
         });
+
+        RecyclerView rView = (RecyclerView) getView().findViewById(R.id.recyclerViewHome);
+        new FirebaseDBUtils("UsersData", "Node1").getInfo(new FirebaseDBUtils.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<String> info, List<String> keys) {
+                m_utilCardList.clear();
+                m_utilCardList.add(new UtilCard(keys.get(keys.size()-1), info.get(info.size()-1)));
+                // TODO DELETE THIS TEST
+                for (int i = 0; i < 2 ; i++) {
+                    m_utilCardList.add(new UtilCard(Integer.toString(i), Integer.toString(i)));
+                }
+
+                new HomeRecyclerView_Config().setConfig(rView, getContext(), m_utilCardList);
+
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
+
+
+
+
 
     }
 //
