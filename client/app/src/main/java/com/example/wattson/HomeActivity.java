@@ -28,9 +28,9 @@ public class HomeActivity extends AppCompatActivity {
 
         //add menue items
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_home_icon));
-        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_plug_icon));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_history_clock));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_graph_icon));
-        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_person_icon));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_person_full));
 
         bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
