@@ -6,36 +6,22 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.TextClock;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.wattson.Adapter.HomeRecyclerView_Config;
+import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.utils.FirebaseDBUtils;
-import com.example.wattson.utils.SpacingItemDecorator;
-import com.example.wattson.utils.UtilCard;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.wattson.InfoClasses.UtilCard;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.crypto.AEADBadTagException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,9 +36,8 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     TextView m_labelCard1;
     TextView m_priceCard1;
-    Button addButton;
     DatabaseReference databaseTest;
-    List<UtilCard> m_utilCardList;
+    List<ApplianceInfo> m_ApplianceInfo;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -98,7 +83,7 @@ public class HomeFragment extends Fragment {
 
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        m_utilCardList = new ArrayList<>();
+        m_ApplianceInfo = new ArrayList<>();
         return rootView;
     }
 
@@ -113,7 +98,7 @@ public class HomeFragment extends Fragment {
 
         t.setOnClickListener(new View.OnClickListener(){
             @Override
-            public  void onClick(View view){
+            public void onClick(View view){
                 Fragment someFragment = new UtilityInfoFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, someFragment ); // give your fragment container id in first parameter
@@ -123,18 +108,31 @@ public class HomeFragment extends Fragment {
         });
 
         RecyclerView rView = (RecyclerView) getView().findViewById(R.id.recyclerViewHome);
-        new FirebaseDBUtils("UsersData", "Node1").getInfo(new FirebaseDBUtils.DataStatus() {
+        new FirebaseDBUtils("UsersData").getInfo(new FirebaseDBUtils.DataStatus() {
             @Override
-            public void DataIsLoaded(List<String> info, List<String> keys) {
-                m_utilCardList.clear();
-                m_utilCardList.add(new UtilCard(keys.get(keys.size()-1), info.get(info.size()-1)));
-                // TODO DELETE THIS TEST
-                for (int i = 0; i < 2 ; i++) {
-                    m_utilCardList.add(new UtilCard(Integer.toString(i), Integer.toString(i)));
+            public void DataIsLoaded(List<ApplianceInfo> info) {
+                m_ApplianceInfo.clear();
+                m_ApplianceInfo = info;
+
+                bindFirstAppliance(m_ApplianceInfo.get(0));
+                boolean first = true;
+
+                // this skips the first appliance, as that jas a static place
+                if(m_ApplianceInfo.size() > 1){
+                    List<UtilCard> utilCardList = new ArrayList<>();
+
+                    for (ApplianceInfo infoNode: m_ApplianceInfo) {
+                        if(first){
+                            first = false;
+                            continue;
+                        }
+
+                        utilCardList.add(new UtilCard(infoNode.getApplianceName(), infoNode.getLastReading().getReading()));
+                    }
+
+
+                    new HomeRecyclerView_Config().setConfig(rView, getContext(), utilCardList);
                 }
-
-                new HomeRecyclerView_Config().setConfig(rView, getContext(), m_utilCardList);
-
             }
 
             @Override
@@ -152,12 +150,11 @@ public class HomeFragment extends Fragment {
 
             }
         });
+    }
 
-
-
-
-
-
+    public void bindFirstAppliance(ApplianceInfo i_applianceInfo){
+        m_labelCard1.setText(i_applianceInfo.getApplianceName());
+        m_priceCard1.setText(i_applianceInfo.getLastReading().getReading());
     }
 //
 //    public void addInfoToDB(){

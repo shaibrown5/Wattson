@@ -1,4 +1,4 @@
-package com.example.wattson.utils;
+package com.example.wattson.InfoClasses;
 
 public class UtilCard {
 
