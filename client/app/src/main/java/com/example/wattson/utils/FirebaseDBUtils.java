@@ -39,25 +39,23 @@ public class FirebaseDBUtils {
             public void onDataChange(@NonNull DataSnapshot snapshot){
 
                 List<ApplianceInfo> applianceInfoList = new ArrayList<>();
-                List<IndividualReading> individualReadingList = new ArrayList<>();
 
                 // gets the appliance info
                 for (DataSnapshot keyNode: snapshot.getChildren()) {
                     String applianceName = keyNode.getKey();
+                    List<IndividualReading> individualReadingList = new ArrayList<>();
 
                     // gets the node info
                     for (DataSnapshot childNode: keyNode.getChildren()) {
 
                         // extract info from info
                         for (DataSnapshot infoNode: keyNode.getChildren()) {
-                            int count = 0;
                             String timestamp = "";
                             String power = "";
 
                             for(DataSnapshot infoChildNode: infoNode.getChildren()){
-                                if (count == 0){
+                                if (infoChildNode.getKey().equals("Timestamp")){
                                     timestamp = infoChildNode.getValue().toString();
-                                    count ++;
                                 }
                                 else{
                                     power = infoChildNode.getValue().toString();

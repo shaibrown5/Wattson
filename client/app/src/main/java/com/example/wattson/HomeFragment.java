@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment {
 
         t.setOnClickListener(new View.OnClickListener(){
             @Override
-            public  void onClick(View view){
+            public void onClick(View view){
                 Fragment someFragment = new UtilityInfoFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, someFragment ); // give your fragment container id in first parameter
@@ -114,15 +114,25 @@ public class HomeFragment extends Fragment {
                 m_ApplianceInfo.clear();
                 m_ApplianceInfo = info;
 
-                List<UtilCard> utilCardList = new ArrayList<>();
+                bindFirstAppliance(m_ApplianceInfo.get(0));
+                boolean first = true;
 
-                for (ApplianceInfo infoNode: m_ApplianceInfo) {
-                    utilCardList.add(new UtilCard(infoNode.getApplianceName(), infoNode.getLastReading().getReading()));
+                // this skips the first appliance, as that jas a static place
+                if(m_ApplianceInfo.size() > 1){
+                    List<UtilCard> utilCardList = new ArrayList<>();
+
+                    for (ApplianceInfo infoNode: m_ApplianceInfo) {
+                        if(first){
+                            first = false;
+                            continue;
+                        }
+
+                        utilCardList.add(new UtilCard(infoNode.getApplianceName(), infoNode.getLastReading().getReading()));
+                    }
+
+
+                    new HomeRecyclerView_Config().setConfig(rView, getContext(), utilCardList);
                 }
-
-
-                new HomeRecyclerView_Config().setConfig(rView, getContext(), utilCardList);
-
             }
 
             @Override
@@ -140,12 +150,11 @@ public class HomeFragment extends Fragment {
 
             }
         });
+    }
 
-
-
-
-
-
+    public void bindFirstAppliance(ApplianceInfo i_applianceInfo){
+        m_labelCard1.setText(i_applianceInfo.getApplianceName());
+        m_priceCard1.setText(i_applianceInfo.getLastReading().getReading());
     }
 //
 //    public void addInfoToDB(){
