@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.wattson.Adapter.HomeRecyclerView_Config;
@@ -37,7 +36,6 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     TextView m_labelCard1;
     TextView m_priceCard1;
-    Button addButton;
     DatabaseReference databaseTest;
     List<ApplianceInfo> m_ApplianceInfo;
 

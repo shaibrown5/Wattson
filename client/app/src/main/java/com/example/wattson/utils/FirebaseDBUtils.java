@@ -1,8 +1,6 @@
 package com.example.wattson.utils;
 
-import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -19,7 +17,6 @@ import java.util.List;
 
 public class FirebaseDBUtils {
     DatabaseReference databaseTest;
-    private List<String> m_info = new ArrayList<>();
     private final String TAG = "[FIRBASE_DB_HELPER]";
 
     public interface DataStatus{
