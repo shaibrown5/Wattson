@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.wattson.InfoClasses.ApplianceInfo;
+import com.example.wattson.InfoClasses.IndividualReading;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,35 +19,61 @@ import java.util.List;
 
 public class FirebaseDBUtils {
     DatabaseReference databaseTest;
-    private String m_AppliancName = null;
     private List<String> m_info = new ArrayList<>();
+    private final String TAG = "[FIRBASE_DB_HELPER]";
 
     public interface DataStatus{
-        void DataIsLoaded(List<String> info, List<String> keys);
+        void DataIsLoaded(List<ApplianceInfo> applianceInfo);
         void DataIsInserted();
         void DataIsUpdated();
         void DataIsDeleted();
     }
 
 
-    public FirebaseDBUtils(String i_UserID, String i_ApplianceName){
-        databaseTest = FirebaseDatabase.getInstance().getReference().child(i_UserID).child(i_ApplianceName);
-        this.m_AppliancName = i_ApplianceName;
+    public FirebaseDBUtils(String i_UserID){
+        databaseTest = FirebaseDatabase.getInstance().getReference().child(i_UserID);
+        Log.d(TAG, "in constructor");
     }
 
     public void getInfo(final DataStatus i_dataStatus){
+        Log.d(TAG, "in getInfo");
         databaseTest.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
-                List<String> keys = new ArrayList<>();
 
+                List<ApplianceInfo> applianceInfoList = new ArrayList<>();
+                List<IndividualReading> individualReadingList = new ArrayList<>();
+
+                // gets the appliance info
                 for (DataSnapshot keyNode: snapshot.getChildren()) {
-                    keys.add(keyNode.getKey());
-                    m_info.add(keyNode.getValue().toString());
-                    Log.d("[GET INFOR FROM DB]", keyNode.getValue().toString());
+                    String applianceName = keyNode.getKey();
+
+                    // gets the node info
+                    for (DataSnapshot childNode: keyNode.getChildren()) {
+
+                        // extract info from info
+                        for (DataSnapshot infoNode: keyNode.getChildren()) {
+                            int count = 0;
+                            String timestamp = "";
+                            String power = "";
+
+                            for(DataSnapshot infoChildNode: infoNode.getChildren()){
+                                if (count == 0){
+                                    timestamp = infoChildNode.getValue().toString();
+                                    count ++;
+                                }
+                                else{
+                                    power = infoChildNode.getValue().toString();
+                                }
+                            }
+                            individualReadingList.add(new IndividualReading(timestamp, power));
+                        }
+                    }
+
+                    applianceInfoList.add(new ApplianceInfo(applianceName, individualReadingList));
                 }
 
-                i_dataStatus.DataIsLoaded(m_info, keys);
+                i_dataStatus.DataIsLoaded(applianceInfoList);
             }
 
             @Override

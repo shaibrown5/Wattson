@@ -7,15 +7,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.wattson.HomeActivity;
 import com.example.wattson.R;
-import com.example.wattson.utils.UtilCard;
-
-import org.w3c.dom.Text;
+import com.example.wattson.InfoClasses.UtilCard;
 
 import java.util.List;
 public class HomeRecyclerView_Config{
