@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class FirebaseDBUtils {
     private final String TAG = "[FIRBASE_DB_HELPER]";
 
     public interface DataStatus{
-        void DataIsLoaded(List<ApplianceInfo> applianceInfo);
+        void DataIsLoaded(ArrayList<ApplianceInfo> applianceInfo);
         void DataIsInserted();
         void DataIsUpdated();
         void DataIsDeleted();
@@ -38,7 +39,7 @@ public class FirebaseDBUtils {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
 
-                List<ApplianceInfo> applianceInfoList = new ArrayList<>();
+                ArrayList<ApplianceInfo> applianceInfoList = new ArrayList<>();
 
                 // gets the appliance info
                 for (DataSnapshot keyNode: snapshot.getChildren()) {

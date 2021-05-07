@@ -1,12 +1,21 @@
 package com.example.wattson.InfoClasses;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class ApplianceInfo {
+public class ApplianceInfo implements Parcelable {
 
     private String m_ApplianceName;
     private double m_dailyPrice;
     private List<IndividualReading> m_ReadingList;
+
+    protected ApplianceInfo(Parcel in) {
+        m_ApplianceName = in.readString();
+        m_dailyPrice = in.readDouble();
+        m_ReadingList = in.createTypedArrayList(IndividualReading.CREATOR);
+    }
 
     public List<IndividualReading> getReadingList() { return m_ReadingList; }
     public String getApplianceName() { return m_ApplianceName; }
@@ -24,5 +33,29 @@ public class ApplianceInfo {
 
     public IndividualReading getLastReading(){
         return m_ReadingList.get(m_ReadingList.size() - 1);
+    }
+
+    public static final Creator<ApplianceInfo> CREATOR = new Creator<ApplianceInfo>() {
+        @Override
+        public ApplianceInfo createFromParcel(Parcel in) {
+            return new ApplianceInfo(in);
+        }
+
+        @Override
+        public ApplianceInfo[] newArray(int size) {
+            return new ApplianceInfo[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(m_ApplianceName);
+        parcel.writeDouble(m_dailyPrice);
+        parcel.writeTypedList(m_ReadingList);
     }
 }
