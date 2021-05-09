@@ -1,4 +1,4 @@
-package com.example.wattson;
+package com.example.wattson.main_fragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.wattson.Adapter.HomeRecyclerView_Config;
 import com.example.wattson.InfoClasses.ApplianceInfo;
+import com.example.wattson.R;
 import com.example.wattson.utils.FirebaseDBUtils;
 import com.example.wattson.InfoClasses.UtilCard;
 import com.google.firebase.database.DatabaseReference;
@@ -31,13 +32,12 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String m_ApplianceSaveKey = "Appliance info";
+    private final String dataName = "utilInfo";
     TextView m_labelCard1;
     TextView m_priceCard1;
     DatabaseReference databaseTest;
-    List<ApplianceInfo> m_ApplianceInfo;
+    ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,8 +59,6 @@ public class HomeFragment extends Fragment {
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -68,11 +66,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
         databaseTest = FirebaseDatabase.getInstance().getReference().child("UsersData").child("Node1");
     }
 
@@ -83,7 +76,7 @@ public class HomeFragment extends Fragment {
 
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        m_ApplianceInfo = new ArrayList<>();
+        //m_ApplianceInfo = new ArrayList<>();
         return rootView;
     }
 
@@ -94,6 +87,7 @@ public class HomeFragment extends Fragment {
         TextView t = (TextView) getView().findViewById(R.id.CardGoToArrow1);
         m_labelCard1 = (TextView) getView().findViewById(R.id.labelCard1);
         m_priceCard1 = (TextView) getView().findViewById(R.id.priceCard1);
+        RecyclerView rView = (RecyclerView) getView().findViewById(R.id.recyclerViewHome);
         ArrayList<String> list = new ArrayList<>();
 
         t.setOnClickListener(new View.OnClickListener(){
@@ -107,31 +101,17 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        RecyclerView rView = (RecyclerView) getView().findViewById(R.id.recyclerViewHome);
         new FirebaseDBUtils("UsersData").getInfo(new FirebaseDBUtils.DataStatus() {
             @Override
-            public void DataIsLoaded(List<ApplianceInfo> info) {
+            public void DataIsLoaded(ArrayList<ApplianceInfo> info) {
                 m_ApplianceInfo.clear();
                 m_ApplianceInfo = info;
 
                 bindFirstAppliance(m_ApplianceInfo.get(0));
-                boolean first = true;
 
                 // this skips the first appliance, as that jas a static place
                 if(m_ApplianceInfo.size() > 1){
-                    List<UtilCard> utilCardList = new ArrayList<>();
-
-                    for (ApplianceInfo infoNode: m_ApplianceInfo) {
-                        if(first){
-                            first = false;
-                            continue;
-                        }
-
-                        utilCardList.add(new UtilCard(infoNode.getApplianceName(), infoNode.getLastReading().getReading()));
-                    }
-
-
-                    new HomeRecyclerView_Config().setConfig(rView, getContext(), utilCardList);
+                    bindRecycleView(rView);
                 }
             }
 
@@ -152,11 +132,35 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    public void bindFirstAppliance(ApplianceInfo i_applianceInfo){
+    /**
+     * This method binds the appliance info to the static view (only the first)
+     * @param i_applianceInfo
+     */
+    private void bindFirstAppliance(ApplianceInfo i_applianceInfo){
         m_labelCard1.setText(i_applianceInfo.getApplianceName());
         m_priceCard1.setText(i_applianceInfo.getLastReading().getReading());
     }
-//
+
+    private void bindRecycleView(RecyclerView rView){
+        List<UtilCard> utilCardList = new ArrayList<>();
+
+        boolean first = true;
+
+        for (ApplianceInfo infoNode: m_ApplianceInfo) {
+            if(first){
+                first = false;
+                continue;
+            }
+
+            utilCardList.add(new UtilCard(infoNode.getApplianceName(), infoNode.getLastReading().getReading()));
+        }
+
+
+        new HomeRecyclerView_Config().setConfig(rView, getContext(), utilCardList);
+    }
+
+
+    //
 //    public void addInfoToDB(){
 //        String info = editTextName.getText().toString().trim();
 //
@@ -170,18 +174,3 @@ public class HomeFragment extends Fragment {
 //            Toast.makeText(getContext(), "no null infdo", Toast.LENGTH_SHORT).show();
 //        }
     }
-
-
-//    private class Person{
-//        String name;
-//
-//        public Person(String name){
-//            this.name = name;
-//        }
-//
-//        public String getPersonName(){
-//            return name;
-//        }
-//    }
-//}
-

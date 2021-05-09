@@ -1,10 +1,18 @@
 package com.example.wattson.InfoClasses;
 
-public class IndividualReading {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class IndividualReading implements Parcelable {
 
     private String m_TimeStamp;
     private String m_reading;
 
+
+    protected IndividualReading(Parcel in) {
+        m_TimeStamp = in.readString();
+        m_reading = in.readString();
+    }
 
     public String getReading() {return m_reading;}
     public void setReading(String m_reading) { this.m_reading = m_reading;}
@@ -18,5 +26,26 @@ public class IndividualReading {
         m_TimeStamp = i_timeStamp;
     }
 
+    public static final Creator<IndividualReading> CREATOR = new Creator<IndividualReading>() {
+        @Override
+        public IndividualReading createFromParcel(Parcel in) {
+            return new IndividualReading(in);
+        }
 
+        @Override
+        public IndividualReading[] newArray(int size) {
+            return new IndividualReading[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(m_TimeStamp);
+        parcel.writeString(m_reading);
+    }
 }

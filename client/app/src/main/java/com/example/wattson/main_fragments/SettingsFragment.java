@@ -1,4 +1,4 @@
-package com.example.wattson;
+package com.example.wattson.main_fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.wattson.Adapter.SettingsAdapter;
+import com.example.wattson.LoginActivity;
+import com.example.wattson.R;
 import com.example.wattson.utils.SpacingItemDecorator;
 
 /**
