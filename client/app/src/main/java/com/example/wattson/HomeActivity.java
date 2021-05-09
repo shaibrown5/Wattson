@@ -1,17 +1,18 @@
 package com.example.wattson;
 //https://github.com/oneHamidreza/MeowBottomNavigationJava
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.wattson.main_fragments.HomeFragment;
+import com.example.wattson.main_fragments.SettingsFragment;
+import com.example.wattson.main_fragments.StatisticsFragment;
+import com.example.wattson.main_fragments.TodaysActivityFragment;
 
 public class HomeActivity extends AppCompatActivity {
 

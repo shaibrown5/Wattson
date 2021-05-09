@@ -1,4 +1,4 @@
-package com.example.wattson;
+package com.example.wattson.main_fragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.wattson.Adapter.HomeRecyclerView_Config;
 import com.example.wattson.InfoClasses.ApplianceInfo;
+import com.example.wattson.R;
 import com.example.wattson.utils.FirebaseDBUtils;
 import com.example.wattson.InfoClasses.UtilCard;
 import com.google.firebase.database.DatabaseReference;
