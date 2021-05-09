@@ -45,4 +45,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'
+    implementation 'com.kofigyan.stateprogressbar:stateprogressbar:1.0.0'
 }
