@@ -44,7 +44,7 @@
                 android:layout_marginRight="51dp"
                 android:fontFamily="@font/assistant_regular"
                 android:text="TextView"
-                android:textColor="#050505"
+                android:textColor="@color/font_gray"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/CardGoToArrow"
                 app:layout_constraintStart_toStartOf="parent"
