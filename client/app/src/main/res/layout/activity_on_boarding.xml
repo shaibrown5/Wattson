@@ -15,10 +15,10 @@
         app:spb_currentStateNumber="one"
         app:spb_maxStateNumber="three"
         app:spb_stateBackgroundColor="#BDBDBD"
-        app:spb_stateForegroundColor="#009688"
+        app:spb_stateForegroundColor="@color/background_blue"
         app:spb_stateNumberBackgroundColor="#808080"
         app:spb_stateNumberForegroundColor="#eeeeee"
-        app:spb_currentStateDescriptionColor="#009688"
+        app:spb_currentStateDescriptionColor="@color/background_text_color"
         app:spb_stateDescriptionColor="#808080"
         app:spb_animateToCurrentProgressState="true"
         app:spb_checkStateCompleted="true"/>
