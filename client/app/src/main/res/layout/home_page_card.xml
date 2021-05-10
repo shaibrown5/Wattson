@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="170dp">
+    android:layout_height="125dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="110dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         app:cardBackgroundColor="@color/new_background_blue"
@@ -31,7 +31,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.122" />
+                app:layout_constraintVertical_bias="0.195" />
 
             <TextView
                 android:id="@+id/labelCard"
