@@ -27,8 +27,9 @@ public class OBpage3 extends Fragment {
     private TextView txt_plugNumber;
     private MaterialButton bt_clickedButton;
     private boolean m_isLast = false;
-    private int m_plugNum;
     private boolean m_optionPicked = false;
+    private boolean m_hasSkipped = false;
+    private int m_plugNum;
 
     private MaterialButton bt_kettle;
     private MaterialButton bt_washingMachine;
@@ -85,12 +86,20 @@ public class OBpage3 extends Fragment {
         bt_doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(m_optionPicked) {
+                if(m_optionPicked || m_hasSkipped) {
                     if (m_isLast) {
                         ((OnBoardingActivity) getActivity()).incrementBar();
                     } else {
                         incrementPlugNum();
                         txt_skip.setVisibility(View.VISIBLE);
+                        txt_skip.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                bt_doneButton.setText("Done");
+                                m_isLast = true;
+                                m_hasSkipped = true;
+                            }
+                        });
                     }
                 }
                 else{
@@ -99,13 +108,7 @@ public class OBpage3 extends Fragment {
             }
         });
 
-        txt_skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bt_doneButton.setText("Done");
-                m_isLast = true;
-            }
-        });
+
 
         bt_kettle.setOnClickListener(new View.OnClickListener() {
             @Override
