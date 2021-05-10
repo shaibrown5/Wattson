@@ -14,18 +14,22 @@
 
         <Button
             android:id="@+id/button1Next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="132dp"
+            android:layout_height="45dp"
             android:layout_marginStart="162dp"
             android:layout_marginLeft="162dp"
+            android:layout_marginTop="132dp"
             android:layout_marginEnd="162dp"
             android:layout_marginRight="162dp"
+            android:fontFamily="@font/assistant_regular"
             android:text="next"
-            app:backgroundTint="#151313"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/new_background_blue"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textSignUpVerifyPass" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,6 +44,93 @@
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="169dp"
+            android:layout_marginLeft="169dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="166dp"
+            android:layout_marginRight="166dp"
+            android:gravity="center"
+            android:text="Create account"
+            android:textColor="@color/font_gray"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/textSignUpName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="91dp"
+            android:layout_marginLeft="91dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="91dp"
+            android:layout_marginRight="91dp"
+            android:ems="10"
+            android:hint="Full name"
+            android:inputType="textPersonName"
+            android:textColor="@color/font_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/textSignUpEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="75dp"
+            android:layout_marginRight="75dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:textColor="@color/font_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSignUpName" />
+
+        <EditText
+            android:id="@+id/textSignUpPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="75dp"
+            android:layout_marginRight="75dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPersonName"
+            android:textColor="@color/font_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSignUpEmail" />
+
+        <EditText
+            android:id="@+id/textSignUpVerifyPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="75dp"
+            android:layout_marginRight="75dp"
+            android:ems="10"
+            android:hint="Verify password"
+            android:inputType="textPersonName"
+            android:textColor="@color/font_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSignUpPassword" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
