@@ -19,56 +19,22 @@ import com.example.wattson.Adapter.UtilityAdapter;
 import com.example.wattson.R;
 import com.example.wattson.utils.SpacingItemDecorator;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link UtilityInfoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class UtilityInfoFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     TextView m_backArrow;
     TextView m_Day;
     TextView m_Week;
     TextView m_Month;
     TextView m_Year;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public UtilityInfoFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment UtilityInfoFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static UtilityInfoFragment newInstance(String param1, String param2) {
-        UtilityInfoFragment fragment = new UtilityInfoFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
