@@ -12,16 +12,16 @@
         android:id="@+id/progress_bar_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:spb_animateToCurrentProgressState="true"
+        app:spb_checkStateCompleted="true"
+        app:spb_currentStateDescriptionColor="@color/background_text_color"
         app:spb_currentStateNumber="one"
         app:spb_maxStateNumber="three"
         app:spb_stateBackgroundColor="#BDBDBD"
+        app:spb_stateDescriptionColor="#808080"
         app:spb_stateForegroundColor="@color/background_blue"
         app:spb_stateNumberBackgroundColor="#808080"
-        app:spb_stateNumberForegroundColor="#eeeeee"
-        app:spb_currentStateDescriptionColor="@color/background_text_color"
-        app:spb_stateDescriptionColor="#808080"
-        app:spb_animateToCurrentProgressState="true"
-        app:spb_checkStateCompleted="true"/>
+        app:spb_stateNumberForegroundColor="#eeeeee" />
 
     <FrameLayout
         android:id="@+id/frame_on_boarding_layout"

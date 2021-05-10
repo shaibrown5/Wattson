@@ -18,7 +18,7 @@
             android:layout_height="45dp"
             android:layout_marginStart="162dp"
             android:layout_marginLeft="162dp"
-            android:layout_marginTop="132dp"
+            android:layout_marginTop="500dp"
             android:layout_marginEnd="162dp"
             android:layout_marginRight="162dp"
             android:fontFamily="@font/assistant_regular"
@@ -29,7 +29,7 @@
             app:backgroundTint="@color/new_background_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSignUpVerifyPass" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
