@@ -18,12 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
-        android:background="@color/background_gray"
-        app:mbn_circleColor="@color/white"
-        app:mbn_selectedIconColor="@color/background_blue"
+        android:background="@color/white"
+        app:mbn_circleColor="@color/nav_bar_cirle"
+        app:mbn_selectedIconColor="@color/nav_bar_icon"
         app:mbn_countTextColor="@color/background_gray"
-        app:mbn_defaultIconColor="@color/background_gray"
-        app:mbn_backgroundBottomColor="@color/background_blue" />
-
+        app:mbn_defaultIconColor="@color/nav_bar_icon"
+        app:mbn_backgroundBottomColor="@color/nav_bar_main" />
 
 </LinearLayout>

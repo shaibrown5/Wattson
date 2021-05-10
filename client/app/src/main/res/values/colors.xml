@@ -13,4 +13,7 @@
     <color name="font_gray">#939393</color>
     <color name="on_green">#00D186</color>
     <color name="price_background_home_page">#D0DBFF</color>
+    <color name="nav_bar_main">#F3F3F3</color>
+    <color name="nav_bar_icon">#939393</color>
+    <color name="nav_bar_cirle">#DFE4F4</color>
 </resources>
