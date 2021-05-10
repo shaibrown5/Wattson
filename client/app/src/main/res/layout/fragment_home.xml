@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_gray"
+    android:background="@color/white"
     tools:context=".main_fragments.HomeFragment">
 
     <TextView
@@ -50,7 +50,7 @@
                 android:id="@+id/textViewUTodaysAmmount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/price_background_home_page"
+                android:background="@color/white"
                 android:fontFamily="@font/assistant_regular"
                 android:gravity="center"
                 android:paddingLeft="8dp"
@@ -109,7 +109,7 @@
                 android:id="@+id/textViewEstAmmount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/price_background_home_page"
+                android:background="@color/white"
                 android:fontFamily="@font/assistant_regular"
                 android:gravity="center"
                 android:paddingLeft="8dp"
@@ -132,6 +132,7 @@
         android:layout_width="318dp"
         android:layout_height="146dp"
         android:layout_marginTop="118dp"
+        app:cardBackgroundColor="@color/new_background_blue"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

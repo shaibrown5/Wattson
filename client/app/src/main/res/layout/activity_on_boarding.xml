@@ -19,9 +19,9 @@
         app:spb_maxStateNumber="three"
         app:spb_stateBackgroundColor="#BDBDBD"
         app:spb_stateDescriptionColor="#808080"
-        app:spb_stateForegroundColor="@color/background_blue"
+        app:spb_stateForegroundColor="@color/new_background_blue"
         app:spb_stateNumberBackgroundColor="#808080"
-        app:spb_stateNumberForegroundColor="#eeeeee" />
+        app:spb_stateNumberForegroundColor="@color/nav_bar_icon" />
 
     <FrameLayout
         android:id="@+id/frame_on_boarding_layout"
