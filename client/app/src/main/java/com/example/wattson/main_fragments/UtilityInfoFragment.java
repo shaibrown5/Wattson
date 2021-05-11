@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +23,13 @@ import com.example.wattson.utils.SpacingItemDecorator;
 
 public class UtilityInfoFragment extends Fragment {
 
-    TextView m_backArrow;
-    TextView m_Day;
-    TextView m_Week;
-    TextView m_Month;
-    TextView m_Year;
+    private TextView m_backArrow;
+    private TextView txt_Day;
+    private TextView txt_Week;
+    private TextView txt_Month;
+    private TextView txt_Year;
+    private TextView m_currentTimePicked;
+    private StateTime m_StateTime;
 
 
     public UtilityInfoFragment() {
@@ -49,12 +53,14 @@ public class UtilityInfoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         m_backArrow = (TextView) getView().findViewById(R.id.UtilBackArrow);
-        m_Day = (TextView) getView().findViewById(R.id.textViewDay);
-        m_Week = (TextView) getView().findViewById(R.id.textViewWeek);
-        m_Month= (TextView) getView().findViewById(R.id.textViewMonth);
-        m_Year = (TextView) getView().findViewById(R.id.textViewYear);
+        txt_Day = (TextView) getView().findViewById(R.id.textViewDay);
+        txt_Week = (TextView) getView().findViewById(R.id.textViewWeek);
+        txt_Month= (TextView) getView().findViewById(R.id.textViewMonth);
+        txt_Year = (TextView) getView().findViewById(R.id.textViewYear);
 
-        m_Day.setClickable(false);
+        m_currentTimePicked = txt_Day;
+        m_StateTime = StateTime.DAY;
+        setCurrentTimePicked();
 
         String[] values = {"Shai", "Brown", "yo"};
         String[] labels = getResources().getStringArray(R.array.utility_header_list);
@@ -87,64 +93,81 @@ public class UtilityInfoFragment extends Fragment {
         });
 
         //change to day view
-        m_Day.setOnClickListener(new View.OnClickListener() {
+        txt_Day.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setUpTimeMeasurementBar();
-                m_Day.setTextColor(Color.BLACK);
-                m_Day.setClickable(false);
-
+                clearCurrentTime();
+                m_StateTime = StateTime.DAY;
+                m_currentTimePicked = txt_Day;
+                setCurrentTimePicked();
             }
         });
 
         //change to week view
-        m_Week.setOnClickListener(new View.OnClickListener() {
+        txt_Week.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setUpTimeMeasurementBar();
-                m_Week.setTextColor(Color.BLACK);
-                m_Week.setClickable(false);
-
+                clearCurrentTime();
+                m_StateTime = StateTime.WEEK;
+                m_currentTimePicked = txt_Week;
+                setCurrentTimePicked();
             }
         });
 
         //change to month view
-        m_Month.setOnClickListener(new View.OnClickListener() {
+        txt_Month.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setUpTimeMeasurementBar();
-                m_Month.setTextColor(Color.BLACK);
-                m_Month.setClickable(false);
-
+                clearCurrentTime();
+                m_StateTime = StateTime.MONTH;
+                m_currentTimePicked = txt_Month;
+                setCurrentTimePicked();
             }
         });
 
         //change to year view
-        m_Year.setOnClickListener(new View.OnClickListener() {
+        txt_Year.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setUpTimeMeasurementBar();
-                m_Year.setTextColor(Color.BLACK);
-                m_Year.setClickable(false);
-
+                clearCurrentTime();
+                m_StateTime = StateTime.YEAR;
+                m_currentTimePicked = txt_Year;
+                setCurrentTimePicked();
             }
         });
 
     }
 
     /**
-     * set up the measurements bar
+     * this meths sets the time fram picked (day, week ...)
      */
-    private void setUpTimeMeasurementBar(){
-        //changing the current color
-        m_Day.setTextColor(getResources().getColor(R.color.font_gray));
-        m_Week.setTextColor(getResources().getColor(R.color.font_gray));
-        m_Month.setTextColor(getResources().getColor(R.color.font_gray));
-        m_Year.setTextColor(getResources().getColor(R.color.font_gray));
+    private void setCurrentTimePicked(){
+        m_currentTimePicked.setClickable(false);
+        SpannableString content = new SpannableString(m_StateTime.getValue());
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        m_currentTimePicked.setText(content);
+        m_currentTimePicked.setTextColor(Color.BLACK);
+    }
 
-        m_Day.setClickable(true);
-        m_Week.setClickable(true);
-        m_Month.setClickable(true);
-        m_Year.setClickable(true);
+    /**
+     * This method clears the
+     */
+    private void clearCurrentTime(){
+        m_currentTimePicked.setText(m_StateTime.getValue());
+        m_currentTimePicked.setTextColor(getResources().getColor(R.color.font_gray));
+        m_currentTimePicked.setClickable(true);
+    }
+
+    public enum StateTime {
+        DAY("Day"), WEEK("WK"), MONTH("MO"), YEAR("YR");
+        private final String value;
+
+        StateTime(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
     }
 }
