@@ -21,4 +21,66 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textStatisticsYear"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:fontFamily="@font/assistant_regular"
+        android:gravity="center"
+        android:text="YR"
+        android:textColor="@color/font_gray"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textStatisticsMonth"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:fontFamily="@font/assistant_regular"
+        android:gravity="center"
+        android:text="MO"
+        android:textColor="@color/font_gray"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textStatisticsYear"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"  />
+
+    <TextView
+        android:id="@+id/textStatisticsDay"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:fontFamily="@font/assistant_regular"
+        android:gravity="center"
+        android:text="DAY"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textStatisticsWeek"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"  />
+
+    <TextView
+        android:id="@+id/textStatisticsWeek"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:fontFamily="@font/assistant_regular"
+        android:gravity="center"
+        android:text="WK"
+        android:textColor="@color/font_gray"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textStatisticsMonth"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"  />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

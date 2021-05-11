@@ -8,6 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="299dp"
         android:layout_height="wrap_content"
+        app:cardElevation="0dp"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +27,7 @@
                 android:gravity="center"
                 android:text="TextView"
                 android:textColor="@color/font_gray"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

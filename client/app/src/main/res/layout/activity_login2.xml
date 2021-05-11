@@ -8,35 +8,49 @@
     tools:context=".LoginActivity"
     tools:visibility="visible">
 
-    <EditText
-        android:id="@+id/loginUserName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginUserNameLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="292dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/round_border"
-        android:drawableStart="@drawable/ic_email_icon"
-        android:ems="10"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:hint="Email"
-        android:inputType="textPersonName"
-        android:padding="16dp"
+        android:textColorHint="@color/font_gray"
+        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLogIn"
+        app:startIconDrawable="@drawable/ic_email_icon"
+        app:startIconTint="@color/new_background_blue">
 
-    <EditText
-        android:id="@+id/loginPassword"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginUserNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginPasswordLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="292dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/round_border"
-        android:drawableStart="@drawable/ic_password_icon"
-        android:ems="10"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="16dp"
+        android:textColorHint="@color/font_gray"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/loginUserNameLayout"
+        app:startIconDrawable="@drawable/ic_password_icon"
+        app:startIconTint="@color/new_background_blue">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/forgotPass"
@@ -45,7 +59,6 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/assistant_regular"
         android:gravity="center"
-        android:shadowColor="#D32222"
         android:text="Forgot password?"
         android:textColor="@color/font_gray"
         android:textSize="18sp"
@@ -53,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordLayout" />
 
     <Button
         android:id="@+id/logInButton"
@@ -90,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/assistant_regular"
-        android:text="Create a new one"
+        android:text="Sign up now"
         android:textColor="@color/font_gray"
         android:textSize="18sp"
         android:textStyle="bold"

@@ -44,7 +44,7 @@ public class SettingsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String[] values = {"Shai Brown", "USD $", "-1", "-1", "-1", "-1"};
+        String[] values = {"Shai Brown", "NIS", "-1", "-1", "-1", "-1"};
         String[] labels = getResources().getStringArray(R.array.setting_label_list);
 
         RecyclerView rView = (RecyclerView)getView().findViewById(R.id.recyclerViewSetting);
