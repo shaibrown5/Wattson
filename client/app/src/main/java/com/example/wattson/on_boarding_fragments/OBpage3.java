@@ -30,6 +30,7 @@ public class OBpage3 extends Fragment {
     private boolean m_optionPicked = false;
     private boolean m_hasSkipped = false;
     private int m_plugNum;
+    private String m_clickedButtonName;
 
     private MaterialButton bt_kettle;
     private MaterialButton bt_washingMachine;
@@ -115,6 +116,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_kettle;
+                    m_clickedButtonName = bt_kettle.getText().toString();
                     bt_kettle.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -126,6 +128,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_washingMachine;
+                    m_clickedButtonName = bt_washingMachine.getText().toString();
                     bt_washingMachine.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -137,6 +140,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_microwave;
+                    m_clickedButtonName = bt_microwave.getText().toString();
                     bt_microwave.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -148,6 +152,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_tv;
+                    m_clickedButtonName = bt_tv.getText().toString();
                     bt_tv.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -159,6 +164,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_iron;
+                    m_clickedButtonName = bt_iron.getText().toString();
                     bt_iron.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -170,6 +176,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_ac;
+                    m_clickedButtonName = bt_ac.getText().toString();
                     bt_ac.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -181,6 +188,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_oven;
+                    m_clickedButtonName = bt_oven.getText().toString();
                     bt_oven.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -192,6 +200,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_computer;
+                    m_clickedButtonName = bt_computer.getText().toString();
                     bt_computer.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -203,6 +212,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_dishWasher;
+                    m_clickedButtonName = bt_dishWasher.getText().toString();
                     bt_dishWasher.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
@@ -214,6 +224,7 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_other;
+                    m_clickedButtonName = bt_other.getText().toString();
                     bt_other.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
                     m_optionPicked = true;
                 }
