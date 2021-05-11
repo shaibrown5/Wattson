@@ -188,8 +188,6 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewUtilityHeaderSymbol"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
