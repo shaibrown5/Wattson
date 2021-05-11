@@ -5,12 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
     android:orientation="vertical"
     tools:context=".OnBoardingActivity">
 
     <com.kofigyan.stateprogressbar.StateProgressBar
         android:id="@+id/progress_bar_id"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:spb_animateToCurrentProgressState="true"
         app:spb_checkStateCompleted="true"
@@ -20,8 +21,10 @@
         app:spb_stateBackgroundColor="#BDBDBD"
         app:spb_stateDescriptionColor="#808080"
         app:spb_stateForegroundColor="@color/new_background_blue"
+        app:spb_stateLineThickness="2dp"
         app:spb_stateNumberBackgroundColor="#BDBDBD"
-        app:spb_stateNumberForegroundColor="@color/new_background_blue" />
+        app:spb_stateNumberForegroundColor="@color/new_background_blue"
+        app:spb_stateSize="18dp" />
 
     <FrameLayout
         android:id="@+id/frame_on_boarding_layout"

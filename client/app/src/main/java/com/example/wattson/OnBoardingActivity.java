@@ -15,7 +15,6 @@ import com.kofigyan.stateprogressbar.StateProgressBar;
 
 public class OnBoardingActivity extends AppCompatActivity {
 
-    private String[] m_descriptionData = {"Account", "Tutorial", "Devices"};
     private StateProgressBar m_stateProgressBar;
     private StateProgressBar.StateNumber m_stateNumber;
 
@@ -25,7 +24,6 @@ public class OnBoardingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_on_boarding);
 
         m_stateProgressBar = (StateProgressBar) findViewById(R.id.progress_bar_id);
-        m_stateProgressBar.setStateDescriptionData(m_descriptionData);
         m_stateProgressBar.setAnimationDuration(10000);
 
         m_stateNumber = StateProgressBar.StateNumber.ONE;
