@@ -116,9 +116,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_kettle;
-                    m_clickedButtonName = bt_kettle.getText().toString();
-                    bt_kettle.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_kettle.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -128,9 +129,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_washingMachine;
-                    m_clickedButtonName = bt_washingMachine.getText().toString();
-                    bt_washingMachine.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_washingMachine.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -140,9 +142,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_microwave;
-                    m_clickedButtonName = bt_microwave.getText().toString();
-                    bt_microwave.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_microwave.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -152,9 +155,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_tv;
-                    m_clickedButtonName = bt_tv.getText().toString();
-                    bt_tv.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_tv.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -164,9 +168,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_iron;
-                    m_clickedButtonName = bt_iron.getText().toString();
-                    bt_iron.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_iron.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -176,9 +181,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_ac;
-                    m_clickedButtonName = bt_ac.getText().toString();
-                    bt_ac.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_ac.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -188,9 +194,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_oven;
-                    m_clickedButtonName = bt_oven.getText().toString();
-                    bt_oven.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_oven.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -200,9 +207,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_computer;
-                    m_clickedButtonName = bt_computer.getText().toString();
-                    bt_computer.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_computer.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -212,9 +220,10 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_dishWasher;
-                    m_clickedButtonName = bt_dishWasher.getText().toString();
-                    bt_dishWasher.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_dishWasher.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
@@ -224,13 +233,30 @@ public class OBpage3 extends Fragment {
             public void onClick(View view) {
                 if(!m_optionPicked) {
                     bt_clickedButton = bt_other;
-                    m_clickedButtonName = bt_other.getText().toString();
-                    bt_other.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
-                    m_optionPicked = true;
+                    setCLickedOption();
+                }
+                else if(bt_clickedButton.getText().toString().equals(bt_other.getText().toString())){
+                    doUnclickButton();
                 }
             }
         });
 
+    }
+
+    /**
+     * Sets the clicked button when it is chosen
+     */
+    private void setCLickedOption(){
+        m_clickedButtonName = bt_clickedButton.getText().toString();
+        bt_clickedButton.setBackgroundColor(getResources().getColor(R.color.new_background_blue));
+        m_optionPicked = true;
+    }
+
+    private void doUnclickButton(){
+        bt_clickedButton.setBackgroundColor(Color.WHITE);
+        m_optionPicked = false;
+        m_clickedButtonName = "";
+        bt_clickedButton = null;
     }
 
     /**
@@ -240,8 +266,7 @@ public class OBpage3 extends Fragment {
         m_plugNum++;
         String plugText = "Plug " + m_plugNum;
         txt_plugNumber.setText(plugText);
-        bt_clickedButton.setBackgroundColor(Color.WHITE);
-        m_optionPicked = false;
+        doUnclickButton();
 
         if (m_plugNum == 5){
             bt_doneButton.setText("Done");
