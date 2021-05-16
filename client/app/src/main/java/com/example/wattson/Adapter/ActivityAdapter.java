@@ -37,8 +37,8 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.startTime.setText(m_startTimes[position]);
         holder.endTime.setText(m_endTimes[position]);
-        holder.nameOn.setText(m_names[position] + " ON");
-        holder.nameOff.setText(m_names[position] + " OFF");
+        holder.nameOn.setText(String.format("%s ON", m_names[position]));
+        holder.nameOff.setText(String.format("%s OFF", m_names[position]));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.MyView
         return m_names.length;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView startTime;
         private TextView nameOn;
         private TextView nameOff;

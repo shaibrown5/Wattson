@@ -31,7 +31,6 @@ public class HomeFragment extends Fragment {
 
     private TextView m_labelCard1;
     private TextView m_priceCard1;
-    private DatabaseReference databaseTest;
     private ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
     private HomeActivity ac_HomeActivity;
 
@@ -43,7 +42,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        databaseTest = FirebaseDatabase.getInstance().getReference().child("UsersData").child("Node1");
+
     }
 
     @Override
@@ -58,18 +57,26 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView t = (TextView) getView().findViewById(R.id.CardGoToArrow1);
+        TextView cardGoToArrow1 = (TextView) getView().findViewById(R.id.CardGoToArrow1);
         m_labelCard1 = (TextView) getView().findViewById(R.id.labelCard1);
         m_priceCard1 = (TextView) getView().findViewById(R.id.priceCard1);
         RecyclerView rView = (RecyclerView) getView().findViewById(R.id.recyclerViewHome);
         ArrayList<String> list = new ArrayList<>();
 
-        t.setOnClickListener(new View.OnClickListener(){
+        cardGoToArrow1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Fragment someFragment = new UtilityInfoFragment();
+                int position = 0;
+                Fragment utilFrag = new UtilityInfoFragment();
+
+                // save instance of first bundle
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("pos", position);
+                utilFrag.setArguments(bundle);
+
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, someFragment ); // give your fragment container id in first parameter
+                transaction.replace(R.id.frame_layout, utilFrag ); // give your fragment container id in first parameter
                 //transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
                 transaction.commit();
             }
