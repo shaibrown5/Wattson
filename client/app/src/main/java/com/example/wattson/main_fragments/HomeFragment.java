@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.wattson.Adapter.HomeRecyclerView_Config;
+import com.example.wattson.HomeActivity;
 import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.R;
 import com.example.wattson.utils.FirebaseDBUtils;
@@ -23,14 +24,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class HomeFragment extends Fragment {
 
-    TextView m_labelCard1;
-    TextView m_priceCard1;
-    DatabaseReference databaseTest;
-    ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
+    private TextView m_labelCard1;
+    private TextView m_priceCard1;
+    private DatabaseReference databaseTest;
+    private ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
+    private HomeActivity ac_HomeActivity;
 
 
     public HomeFragment() {
@@ -46,11 +49,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        //m_ApplianceInfo = new ArrayList<>();
+        ac_HomeActivity = (HomeActivity) getActivity();
         return rootView;
     }
 
@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        new FirebaseDBUtils("UsersData").getInfo(new FirebaseDBUtils.DataStatus() {
+        new FirebaseDBUtils("Shoval").getInfo(new FirebaseDBUtils.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<ApplianceInfo> info) {
                 m_ApplianceInfo.clear();
@@ -87,6 +87,8 @@ public class HomeFragment extends Fragment {
                 if(m_ApplianceInfo.size() > 1){
                     bindRecycleView(rView);
                 }
+
+                ac_HomeActivity.setApplianceInfo(m_ApplianceInfo);
             }
 
             @Override

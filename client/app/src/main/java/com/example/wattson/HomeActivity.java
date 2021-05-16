@@ -9,15 +9,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.main_fragments.HomeFragment;
 import com.example.wattson.main_fragments.SettingsFragment;
 import com.example.wattson.main_fragments.StatisticsFragment;
 import com.example.wattson.main_fragments.TodaysActivityFragment;
 
+import java.util.ArrayList;
+
 public class HomeActivity extends AppCompatActivity {
 
     MeowBottomNavigation bottomNavigation;
     private static final String TAG = "HomePage";
+    private ArrayList<ApplianceInfo> m_ApplianceInfo;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -26,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Log.i(TAG, "in home page");
         bottomNavigation = findViewById(R.id.bottom_navigation);
+        m_ApplianceInfo = new ArrayList<>();
 
         //add menue items
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_home_icon));
@@ -84,4 +89,19 @@ public class HomeActivity extends AppCompatActivity {
                 .replace(R.id.frame_layout, fragment)
                 .commit();
     }
+
+    /**
+     * This method gets the appliance info List
+     * @return
+     */
+    public ArrayList<ApplianceInfo> getApplianceList(){ return m_ApplianceInfo; }
+
+    /**
+     * This method sets the appliance info list
+     * @param newInfoArray
+     */
+    public void setApplianceInfo(ArrayList<ApplianceInfo> newInfoArray){
+        this.m_ApplianceInfo = newInfoArray;
+    }
+
 }
