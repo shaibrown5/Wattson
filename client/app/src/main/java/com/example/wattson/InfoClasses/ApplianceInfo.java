@@ -31,8 +31,18 @@ public class ApplianceInfo implements Parcelable {
         m_ReadingList = i_info;
     }
 
+    /**
+     * returns the last reading in the db
+     * @return
+     */
     public IndividualReading getLastReading(){
         return m_ReadingList.get(m_ReadingList.size() - 1);
+    }
+
+    public Boolean isCurrentlyOn(){
+        IndividualReading last = getLastReading();
+
+        return (last.getDoubleReading() > 100);
     }
 
     public static final Creator<ApplianceInfo> CREATOR = new Creator<ApplianceInfo>() {

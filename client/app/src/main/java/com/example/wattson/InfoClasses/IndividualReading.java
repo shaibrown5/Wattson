@@ -7,6 +7,7 @@ public class IndividualReading implements Parcelable {
 
     private String m_TimeStamp;
     private String m_reading;
+    private double m_doubleReading;
 
 
     protected IndividualReading(Parcel in) {
@@ -24,6 +25,11 @@ public class IndividualReading implements Parcelable {
     public IndividualReading(String i_timeStamp, String i_reading){
         m_reading = i_reading;
         m_TimeStamp = i_timeStamp;
+        m_doubleReading = Double.parseDouble(m_reading);
+    }
+
+    public double getDoubleReading(){
+        return m_doubleReading;
     }
 
     public static final Creator<IndividualReading> CREATOR = new Creator<IndividualReading>() {
