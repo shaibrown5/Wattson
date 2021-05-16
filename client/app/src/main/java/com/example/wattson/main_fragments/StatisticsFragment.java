@@ -172,7 +172,8 @@ public class StatisticsFragment extends Fragment {
 
         // sets up dummy info
         for (int i = 0; i < m_labelsNames.size() ; i++) {
-            m_barEntryArrayList.add(new BarEntry(i, i*50));
+            int num = (int)Math.floor(Math.random()*(100)+6);
+            m_barEntryArrayList.add(new BarEntry(i, num));
         }
 
         BarDataSet bds = new BarDataSet(m_barEntryArrayList, "info");
@@ -193,7 +194,7 @@ public class StatisticsFragment extends Fragment {
         xAxis.setDrawAxisLine(false);
 //        xAxis.setGranularity(1f);
 //        xAxis.setLabelCount(m_labelsNames.size());
-        bc_BarChart.animateY(2000);
+        bc_BarChart.animateY(1600);
         bc_BarChart.invalidate();
     }
 
