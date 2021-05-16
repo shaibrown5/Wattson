@@ -48,20 +48,12 @@ public class FirebaseDBUtils {
 
                     // gets the node info
                     for (DataSnapshot childNode: keyNode.getChildren()) {
-
                         // extract info from info
-                        for (DataSnapshot infoNode: keyNode.getChildren()) {
-                            String timestamp = "";
-                            String power = "";
 
-                            for(DataSnapshot infoChildNode: infoNode.getChildren()){
-                                if (infoChildNode.getKey().equals("Timestamp")){
-                                    timestamp = infoChildNode.getValue().toString();
-                                }
-                                else{
-                                    power = infoChildNode.getValue().toString();
-                                }
-                            }
+                        String timestamp = childNode.getKey().toString();
+                        String power = childNode.getValue().toString();
+
+                        if(!timestamp.equals("temp")){
                             individualReadingList.add(new IndividualReading(timestamp, power));
                         }
                     }

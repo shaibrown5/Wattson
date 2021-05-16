@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        new FirebaseDBUtils("UsersData").getInfo(new FirebaseDBUtils.DataStatus() {
+        new FirebaseDBUtils("Shoval").getInfo(new FirebaseDBUtils.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<ApplianceInfo> info) {
                 m_ApplianceInfo.clear();
