@@ -90,8 +90,16 @@ public class HomeActivity extends AppCompatActivity {
                 .commit();
     }
 
+    /**
+     * This method gets the appliance info List
+     * @return
+     */
     public ArrayList<ApplianceInfo> getApplianceList(){ return m_ApplianceInfo; }
 
+    /**
+     * This method sets the appliance info list
+     * @param newInfoArray
+     */
     public void setApplianceInfo(ArrayList<ApplianceInfo> newInfoArray){
         this.m_ApplianceInfo = newInfoArray;
     }
