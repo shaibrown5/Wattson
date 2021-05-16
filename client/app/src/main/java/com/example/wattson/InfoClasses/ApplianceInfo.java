@@ -39,6 +39,10 @@ public class ApplianceInfo implements Parcelable {
         return m_ReadingList.get(m_ReadingList.size() - 1);
     }
 
+    /**
+     * This method checks weather the reding of the last entry is high enought to be classified as currently on
+     * @return
+     */
     public Boolean isCurrentlyOn(){
         IndividualReading last = getLastReading();
 
