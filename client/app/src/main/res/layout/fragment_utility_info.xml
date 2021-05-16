@@ -172,7 +172,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recycleViewUtility" />
 
     <TextView
-        android:id="@+id/textViewOnUtilityPage"
+        android:id="@+id/onIndicatorUtilInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"

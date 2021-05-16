@@ -32,10 +32,11 @@ public class UtilityInfoFragment extends Fragment {
     private TextView txt_Week;
     private TextView txt_Month;
     private TextView txt_Year;
+    private TextView on_OnIndicator;
     private TextView m_currentTimePicked;
     private StateTime m_StateTime;
     private HomeActivity ac_HomeActivity;
-    ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
+    private ApplianceInfo m_currentAppliance;
 
 
     public UtilityInfoFragment() {
@@ -45,6 +46,7 @@ public class UtilityInfoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getFragmentManager();
     }
 
     @Override
@@ -53,7 +55,15 @@ public class UtilityInfoFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_utility_info, container, false);
         ac_HomeActivity = (HomeActivity) getActivity();
-        m_ApplianceInfo = ac_HomeActivity.getApplianceList();
+
+        // get the current appliance postition from bundle
+        Bundle bundle = getArguments();
+        int position = bundle.getInt("pos");
+
+        //save an instance of the current appliance
+        ArrayList<ApplianceInfo> ApplianceInfoList = ac_HomeActivity.getApplianceList();
+        m_currentAppliance = ApplianceInfoList.get(position);
+
         return rootView;
     }
 
@@ -65,13 +75,13 @@ public class UtilityInfoFragment extends Fragment {
         txt_Week = (TextView) getView().findViewById(R.id.textViewWeek);
         txt_Month= (TextView) getView().findViewById(R.id.textViewMonth);
         txt_Year = (TextView) getView().findViewById(R.id.textViewYear);
+        on_OnIndicator = (TextView) getView().findViewById(R.id.onIndicatorUtilInfo);
 
         m_currentTimePicked = txt_Day;
         m_StateTime = StateTime.DAY;
         setCurrentTimePicked();
 
-        ApplianceInfo currentApplication = m_ApplianceInfo.get(0);
-        String[] values = {currentApplication.getApplianceName(), currentApplication.getLastReading().getTimeStamp(), currentApplication.getLastReading().getReading()};
+        String[] values = {m_currentAppliance.getApplianceName(), m_currentAppliance.getLastReading().getTimeStamp(), m_currentAppliance.getLastReading().getReading()};
         String[] labels = getResources().getStringArray(R.array.utility_header_list);
 
         RecyclerView rView = (RecyclerView)getView().findViewById(R.id.recycleViewUtility);
@@ -82,7 +92,7 @@ public class UtilityInfoFragment extends Fragment {
         SpacingItemDecorator itemDecor = new SpacingItemDecorator(50);
         rView.addItemDecoration(itemDecor);
 
-        TextView t = (TextView) getView().findViewById(R.id.textViewOnUtilityPage);
+        TextView t = (TextView) getView().findViewById(R.id.onIndicatorUtilInfo);
         //TODO THIS MAKES STUFF INVISIBLE
         //t.setVisibility(View.INVISIBLE);
         t.setVisibility(View.VISIBLE);
