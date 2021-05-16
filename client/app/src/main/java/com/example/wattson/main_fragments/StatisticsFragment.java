@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.wattson.HomeActivity;
 import com.example.wattson.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
@@ -44,6 +45,7 @@ public class StatisticsFragment extends Fragment {
     private BarChart bc_BarChart;
     private ArrayList<BarEntry> m_barEntryArrayList;
     private ArrayList<String> m_labelsNames;
+    private HomeActivity ac_HomeActivity;
 
     public StatisticsFragment() {
         // Required empty public constructor
@@ -68,6 +70,7 @@ public class StatisticsFragment extends Fragment {
         m_barEntryArrayList.clear();
 
         m_dateArray = getResources().getStringArray(R.array.analytics_day);
+        ac_HomeActivity = (HomeActivity) getActivity();
 
         return rootView;
     }
