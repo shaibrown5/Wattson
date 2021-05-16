@@ -39,10 +39,10 @@
     </string-array>
 
     <string-array name="analytics_month">
-        <item>WEEK 1</item>
-        <item>WEEK 2</item>
-        <item>WEEK 3</item>
-        <item>WEEK 4</item>
+        <item>WK 1</item>
+        <item>WK 2</item>
+        <item>WK 3</item>
+        <item>WK 4</item>
     </string-array>
 
     <string-array name="analytics_year">
