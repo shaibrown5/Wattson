@@ -15,6 +15,8 @@ import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.TextView;
 
 import com.example.wattson.Adapter.UtilityAdapter;
@@ -32,6 +34,7 @@ public class UtilityInfoFragment extends Fragment {
     private TextView txt_Week;
     private TextView txt_Month;
     private TextView txt_Year;
+    private TextView txt_header;
     private TextView on_OnIndicator;
     private TextView m_currentTimePicked;
     private StateTime m_StateTime;
@@ -75,8 +78,10 @@ public class UtilityInfoFragment extends Fragment {
         txt_Week = (TextView) getView().findViewById(R.id.textViewWeek);
         txt_Month= (TextView) getView().findViewById(R.id.textViewMonth);
         txt_Year = (TextView) getView().findViewById(R.id.textViewYear);
+        txt_header = (TextView) getView().findViewById(R.id.textViewUtilPageTitle);
         on_OnIndicator = (TextView) getView().findViewById(R.id.onIndicatorUtilInfo);
 
+        txt_header.setText(m_currentAppliance.getApplianceName());
         m_currentTimePicked = txt_Day;
         m_StateTime = StateTime.DAY;
         setCurrentTimePicked();
@@ -92,11 +97,24 @@ public class UtilityInfoFragment extends Fragment {
         SpacingItemDecorator itemDecor = new SpacingItemDecorator(50);
         rView.addItemDecoration(itemDecor);
 
-        TextView t = (TextView) getView().findViewById(R.id.onIndicatorUtilInfo);
         //TODO THIS MAKES STUFF INVISIBLE
         //t.setVisibility(View.INVISIBLE);
-        t.setVisibility(View.VISIBLE);
+//        t.setVisibility(View.VISIBLE);
 
+        // this controls the on indicator
+        on_OnIndicator.setVisibility(View.INVISIBLE);
+        //checks if on, if so starts blinking
+        if(m_currentAppliance.isCurrentlyOn()){
+            on_OnIndicator.setVisibility(View.VISIBLE);
+
+            Animation anim = new AlphaAnimation(0.0f, 1.0f);
+            anim.setDuration(1000); //You can manage the blinking time with this parameter
+            anim.setStartOffset(100);
+            anim.setRepeatMode(Animation.REVERSE);
+            anim.setRepeatCount(Animation.INFINITE);
+            on_OnIndicator.startAnimation(anim);
+
+        }
 
 
         // Go back to the Home Page
