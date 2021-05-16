@@ -18,8 +18,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.wattson.Adapter.UtilityAdapter;
+import com.example.wattson.HomeActivity;
+import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.R;
 import com.example.wattson.utils.SpacingItemDecorator;
+
+import java.util.ArrayList;
 
 public class UtilityInfoFragment extends Fragment {
 
@@ -30,6 +34,8 @@ public class UtilityInfoFragment extends Fragment {
     private TextView txt_Year;
     private TextView m_currentTimePicked;
     private StateTime m_StateTime;
+    private HomeActivity ac_HomeActivity;
+    ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
 
 
     public UtilityInfoFragment() {
@@ -46,6 +52,8 @@ public class UtilityInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_utility_info, container, false);
+        ac_HomeActivity = (HomeActivity) getActivity();
+        m_ApplianceInfo = ac_HomeActivity.getApplianceList();
         return rootView;
     }
 
@@ -62,7 +70,8 @@ public class UtilityInfoFragment extends Fragment {
         m_StateTime = StateTime.DAY;
         setCurrentTimePicked();
 
-        String[] values = {"Shai", "Brown", "yo"};
+        ApplianceInfo currentApplication = m_ApplianceInfo.get(0);
+        String[] values = {currentApplication.getApplianceName(), currentApplication.getLastReading().getTimeStamp(), currentApplication.getLastReading().getReading()};
         String[] labels = getResources().getStringArray(R.array.utility_header_list);
 
         RecyclerView rView = (RecyclerView)getView().findViewById(R.id.recycleViewUtility);
