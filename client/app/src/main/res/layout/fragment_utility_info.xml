@@ -163,7 +163,7 @@
         android:layout_marginTop="48dp"
         android:fontFamily="@font/assistant_regular"
         android:gravity="center"
-        android:text="Todays total"
+        android:text="Sum"
         android:textColor="@color/font_gray"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
