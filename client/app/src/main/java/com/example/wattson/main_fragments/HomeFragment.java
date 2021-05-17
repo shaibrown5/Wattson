@@ -36,15 +36,14 @@ public class HomeFragment extends Fragment {
     private MaterialCardView[] cd_cardslist;
     // the icons of the cards
     private MaterialTextView[] img_iconCardList;
-
     // the name of the utility
     private MaterialTextView[] txt_nameCardList;
-
     // the on symbol cards
     private MaterialCardView[] cd_onIndicatorList;
 
     private ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
     private HomeActivity ac_HomeActivity;
+    private final String m_userName = "Shoval";
 
 
     public HomeFragment() {
@@ -62,6 +61,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         ac_HomeActivity = (HomeActivity) getActivity();
+
         return rootView;
     }
 
@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment {
         setAllInvisible();
 
 
-        new FirebaseDBUtils("Shoval").getInfo(new FirebaseDBUtils.DataStatus() {
+        new FirebaseDBUtils(m_userName).getInfo(new FirebaseDBUtils.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<ApplianceInfo> info) {
                 m_ApplianceInfo.clear();
