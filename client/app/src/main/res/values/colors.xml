@@ -16,4 +16,9 @@
     <color name="nav_bar_main">#F3F3F3</color>
     <color name="nav_bar_icon">#939393</color>
     <color name="nav_bar_cirle">#DFE4F4</color>
+    <color name="card1">#FBE2EF</color>
+    <color name="card2">#FFE6C0</color>
+    <color name="card3">#FBFFD0</color>
+    <color name="card4">#D0DBFF</color>
+    <color name="card5">#D8F2F1</color>
 </resources>
