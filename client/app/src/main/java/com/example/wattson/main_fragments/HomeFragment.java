@@ -3,6 +3,7 @@ package com.example.wattson.main_fragments;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +20,8 @@ import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.R;
 import com.example.wattson.utils.FirebaseDBUtils;
 import com.example.wattson.InfoClasses.UtilCard;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,10 +32,18 @@ import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
-    private TextView m_labelCard1;
-    private TextView m_priceCard1;
+    // the cards of utils
+    private MaterialCardView[] cd_cardslist;
+    // the icons of the cards
+    private MaterialTextView[] img_iconCardList;
+    // the name of the utility
+    private MaterialTextView[] txt_nameCardList;
+    // the on symbol cards
+    private MaterialCardView[] cd_onIndicatorList;
+
     private ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
     private HomeActivity ac_HomeActivity;
+    private final String m_userName = "Shoval";
 
 
     public HomeFragment() {
@@ -50,50 +61,52 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         ac_HomeActivity = (HomeActivity) getActivity();
+
         return rootView;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // cards of the items
+        cd_cardslist = new MaterialCardView[]{(MaterialCardView) getView().findViewById(R.id.Card1),
+                (MaterialCardView) getView().findViewById(R.id.Card2),
+                (MaterialCardView) getView().findViewById(R.id.Card3),
+                (MaterialCardView) getView().findViewById(R.id.Card4),
+                (MaterialCardView) getView().findViewById(R.id.Card5)};
 
-        TextView cardGoToArrow1 = (TextView) getView().findViewById(R.id.CardGoToArrow1);
-        m_labelCard1 = (TextView) getView().findViewById(R.id.labelCard1);
-        m_priceCard1 = (TextView) getView().findViewById(R.id.priceCard1);
-        RecyclerView rView = (RecyclerView) getView().findViewById(R.id.recyclerViewHome);
-        ArrayList<String> list = new ArrayList<>();
 
-        cardGoToArrow1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                int position = 0;
-                Fragment utilFrag = new UtilityInfoFragment();
+        // image icons
+        img_iconCardList = new MaterialTextView[]{(MaterialTextView) getView().findViewById(R.id.utilSymbolCard1),
+                (MaterialTextView) getView().findViewById(R.id.utilSymbolCard2),
+                (MaterialTextView) getView().findViewById(R.id.utilSymbolCard3),
+                (MaterialTextView) getView().findViewById(R.id.utilSymbolCard4),
+                (MaterialTextView) getView().findViewById(R.id.utilSymbolCard5)};
 
-                // save instance of first bundle
+        // the names of the utils
+        txt_nameCardList = new MaterialTextView[]{(MaterialTextView) getView().findViewById(R.id.utilNameCard1),
+                (MaterialTextView) getView().findViewById(R.id.utilNameCard2),
+                (MaterialTextView) getView().findViewById(R.id.utilNameCard3),
+                (MaterialTextView) getView().findViewById(R.id.utilNameCard4),
+                (MaterialTextView) getView().findViewById(R.id.utilNameCard5)};
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("pos", position);
-                utilFrag.setArguments(bundle);
+        //on Symbol cards
+        cd_onIndicatorList = new MaterialCardView[]{(MaterialCardView) getView().findViewById(R.id.onIndicatorCARDCard1),
+                (MaterialCardView) getView().findViewById(R.id.onIndicatorCARDCard2),
+                (MaterialCardView) getView().findViewById(R.id.onIndicatorCARDCard3),
+                (MaterialCardView) getView().findViewById(R.id.onIndicatorCARDCard4),
+                (MaterialCardView) getView().findViewById(R.id.onIndicatorCARDCard5)};
 
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, utilFrag ); // give your fragment container id in first parameter
-                //transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-                transaction.commit();
-            }
-        });
+        setAllInvisible();
 
-        new FirebaseDBUtils("Shoval").getInfo(new FirebaseDBUtils.DataStatus() {
+
+        new FirebaseDBUtils(m_userName).getInfo(new FirebaseDBUtils.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<ApplianceInfo> info) {
                 m_ApplianceInfo.clear();
                 m_ApplianceInfo = info;
 
-                bindFirstAppliance(m_ApplianceInfo.get(0));
-
-                // this skips the first appliance, as that jas a static place
-                if(m_ApplianceInfo.size() > 1){
-                    bindRecycleView(rView);
-                }
+                setLayout();
 
                 ac_HomeActivity.setApplianceInfo(m_ApplianceInfo);
             }
@@ -115,32 +128,54 @@ public class HomeFragment extends Fragment {
         });
     }
 
+
     /**
-     * This method binds the appliance info to the static view (only the first)
-     * @param i_applianceInfo
+     * This method sets up the layout according to the infor received from the db
      */
-    private void bindFirstAppliance(ApplianceInfo i_applianceInfo){
-        m_labelCard1.setText(i_applianceInfo.getApplianceName());
-        m_priceCard1.setText(i_applianceInfo.getLastReading().getReading());
-    }
+    private void setLayout() {
+        for (int i = 0; i < m_ApplianceInfo.size(); i++) {
+            ApplianceInfo currAppliance = m_ApplianceInfo.get(i);
+            cd_cardslist[i].setVisibility(View.VISIBLE);
+            img_iconCardList[i].setText(currAppliance.getApplianceName());
+            txt_nameCardList[i].setText(currAppliance.getApplianceName());
 
-    private void bindRecycleView(RecyclerView rView){
-        List<UtilCard> utilCardList = new ArrayList<>();
-
-        boolean first = true;
-
-        for (ApplianceInfo infoNode: m_ApplianceInfo) {
-            if(first){
-                first = false;
-                continue;
+            //TODO change the threshold
+            if (currAppliance.getLastReading().getDoubleReading() > 100) {
+                cd_onIndicatorList[i].setVisibility(View.VISIBLE);
             }
 
-            utilCardList.add(new UtilCard(infoNode.getApplianceName(), infoNode.getLastReading().getReading()));
+            int pos = i;
+            cd_cardslist[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Fragment utilFrag = new UtilityInfoFragment();
+
+                    // save instance of first bundle
+
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("pos", pos);
+                    utilFrag.setArguments(bundle);
+
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, utilFrag); // give your fragment container id in first parameter
+                    //transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                    transaction.commit();
+                }
+
+            });
         }
-
-
-        new HomeRecyclerView_Config().setConfig(rView, getContext(), utilCardList);
     }
+
+    /**
+     * sets all the page to invisible until data is received
+     */
+    private void setAllInvisible(){
+        for (int i = 0; i < 5 ; i++) {
+            cd_cardslist[i].setVisibility(View.INVISIBLE);
+            cd_onIndicatorList[i].setVisibility(View.INVISIBLE);
+        }
+    }
+}
 
 
     //
@@ -156,4 +191,3 @@ public class HomeFragment extends Fragment {
 //        }else{
 //            Toast.makeText(getContext(), "no null infdo", Toast.LENGTH_SHORT).show();
 //        }
-    }
