@@ -131,6 +131,7 @@ public class HomeFragment extends Fragment {
             txt_nameCardList[i].setText(currAppliance.getApplianceName());
 
             //TODO change the threshold
+            cd_onIndicatorList[i].setVisibility(View.INVISIBLE);
             if (currAppliance.getLastReading().getDoubleReading() > 100) {
                 cd_onIndicatorList[i].setVisibility(View.VISIBLE);
             }
