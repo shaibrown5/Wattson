@@ -1,4 +1,6 @@
 package com.example.wattson.Adapter;
+// legacy
+
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -31,6 +31,7 @@ public class OBpage3 extends Fragment {
     private boolean m_hasSkipped = false;
     private int m_plugNum;
     private String m_clickedButtonName;
+    private final String m_toastMessage = "                Item already picked\nClick next, skip or double click to reset";
 
     private MaterialButton bt_kettle;
     private MaterialButton bt_washingMachine;
@@ -121,6 +122,9 @@ public class OBpage3 extends Fragment {
                 else if(bt_clickedButton.getText().toString().equals(bt_kettle.getText().toString())){
                     doUnclickButton();
                 }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -133,6 +137,9 @@ public class OBpage3 extends Fragment {
                 }
                 else if(bt_clickedButton.getText().toString().equals(bt_washingMachine.getText().toString())){
                     doUnclickButton();
+                }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -147,6 +154,9 @@ public class OBpage3 extends Fragment {
                 else if(bt_clickedButton.getText().toString().equals(bt_microwave.getText().toString())){
                     doUnclickButton();
                 }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -159,6 +169,9 @@ public class OBpage3 extends Fragment {
                 }
                 else if(bt_clickedButton.getText().toString().equals(bt_tv.getText().toString())){
                     doUnclickButton();
+                }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -173,6 +186,9 @@ public class OBpage3 extends Fragment {
                 else if(bt_clickedButton.getText().toString().equals(bt_iron.getText().toString())){
                     doUnclickButton();
                 }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -185,6 +201,9 @@ public class OBpage3 extends Fragment {
                 }
                 else if(bt_clickedButton.getText().toString().equals(bt_ac.getText().toString())){
                     doUnclickButton();
+                }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -199,6 +218,9 @@ public class OBpage3 extends Fragment {
                 else if(bt_clickedButton.getText().toString().equals(bt_oven.getText().toString())){
                     doUnclickButton();
                 }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -211,6 +233,9 @@ public class OBpage3 extends Fragment {
                 }
                 else if(bt_clickedButton.getText().toString().equals(bt_computer.getText().toString())){
                     doUnclickButton();
+                }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -225,6 +250,9 @@ public class OBpage3 extends Fragment {
                 else if(bt_clickedButton.getText().toString().equals(bt_dishWasher.getText().toString())){
                     doUnclickButton();
                 }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -237,6 +265,9 @@ public class OBpage3 extends Fragment {
                 }
                 else if(bt_clickedButton.getText().toString().equals(bt_other.getText().toString())){
                     doUnclickButton();
+                }
+                else{
+                    Toast.makeText(getContext(),m_toastMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });

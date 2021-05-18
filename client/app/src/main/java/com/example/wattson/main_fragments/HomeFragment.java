@@ -7,28 +7,19 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.example.wattson.Adapter.HomeRecyclerView_Config;
 import com.example.wattson.HomeActivity;
 import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.R;
 import com.example.wattson.utils.FirebaseDBUtils;
-import com.example.wattson.InfoClasses.UtilCard;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 
 public class HomeFragment extends Fragment {
 
