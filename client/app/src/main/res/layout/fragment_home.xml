@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/round_border">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textViewUTodaysAmmount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -54,7 +54,7 @@
                 android:gravity="center"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:text="TextView"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -63,7 +63,10 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                app:drawableRightCompat="@drawable/ic_israel_shekel_currency_symbol">
+
+            </com.google.android.material.textview.MaterialTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -103,7 +106,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/round_border">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textViewEstAmmount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -112,7 +115,7 @@
                 android:gravity="center"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:text="TextView"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -121,7 +124,10 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                app:drawableRightCompat="@drawable/ic_israel_shekel_currency_symbol">
+
+            </com.google.android.material.textview.MaterialTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

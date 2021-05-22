@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.SpannableString;
+import android.text.style.TextAppearanceSpan;
 import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class UtilityInfoFragment extends Fragment {
     private TextView txt_header;
     private TextView on_OnIndicator;
     private TextView m_currentTimePicked;
+    private TextView txt_sum;
     private StateTime m_StateTime;
     private HomeActivity ac_HomeActivity;
     private ApplianceInfo m_currentAppliance;
@@ -79,6 +81,7 @@ public class UtilityInfoFragment extends Fragment {
         txt_Month= (TextView) getView().findViewById(R.id.textViewMonth);
         txt_Year = (TextView) getView().findViewById(R.id.textViewYear);
         txt_header = (TextView) getView().findViewById(R.id.textViewUtilPageTitle);
+        txt_sum = (TextView) getView().findViewById(R.id.textViewUTodaysAmmount);
         on_OnIndicator = (TextView) getView().findViewById(R.id.onIndicatorUtilInfo);
 
         txt_header.setText(m_currentAppliance.getApplianceName());
@@ -86,8 +89,12 @@ public class UtilityInfoFragment extends Fragment {
         m_StateTime = StateTime.DAY;
         setCurrentTimePicked();
 
-        String[] values = {m_currentAppliance.getApplianceName(), m_currentAppliance.getLastReading().getTimeStamp(), m_currentAppliance.getLastReading().getReading()};
         String[] labels = getResources().getStringArray(R.array.utility_header_list);
+        // num activation, total time on, avg cost per use
+        String[] values = {String.valueOf(m_currentAppliance.getNumActivations()),
+                m_currentAppliance.getTotalTimeOn(),
+                String.format("%.3f", m_currentAppliance.getDailyPrice()/m_currentAppliance.getNumActivations())};
+
 
         RecyclerView rView = (RecyclerView)getView().findViewById(R.id.recycleViewUtility);
         UtilityAdapter myAdapter = new UtilityAdapter(getContext(), labels, values);
@@ -96,10 +103,6 @@ public class UtilityInfoFragment extends Fragment {
         // change this to create a larger margin between the items in recycle view
         SpacingItemDecorator itemDecor = new SpacingItemDecorator(50);
         rView.addItemDecoration(itemDecor);
-
-        //TODO THIS MAKES STUFF INVISIBLE
-        //t.setVisibility(View.INVISIBLE);
-//        t.setVisibility(View.VISIBLE);
 
         // this controls the on indicator
         on_OnIndicator.setVisibility(View.INVISIBLE);
@@ -115,6 +118,8 @@ public class UtilityInfoFragment extends Fragment {
             on_OnIndicator.startAnimation(anim);
 
         }
+
+        txt_sum.setText(String.format("%.3f", m_currentAppliance.getDailyPrice()));
 
 
         // Go back to the Home Page
