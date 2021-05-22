@@ -8,9 +8,11 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.wattson.HomeActivity;
 import com.example.wattson.InfoClasses.ApplianceInfo;
@@ -32,6 +34,8 @@ public class HomeFragment extends Fragment {
     // the on symbol cards
     private MaterialCardView[] cd_onIndicatorList;
 
+    private MaterialTextView txt_todaysCost;
+    private MaterialTextView txt_monthlyEst;
     private ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
     private HomeActivity ac_HomeActivity;
     private final String m_userName = "Shoval";
@@ -59,6 +63,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        txt_todaysCost = (MaterialTextView) getView().findViewById(R.id.textViewUTodaysAmmount);
+        txt_monthlyEst = (MaterialTextView) getView().findViewById(R.id.textViewEstAmmount);
+
         // cards of the items
         cd_cardslist = new MaterialCardView[]{(MaterialCardView) getView().findViewById(R.id.Card1),
                 (MaterialCardView) getView().findViewById(R.id.Card2),
@@ -100,6 +107,8 @@ public class HomeFragment extends Fragment {
                 setLayout();
 
                 ac_HomeActivity.setApplianceInfo(m_ApplianceInfo);
+                txt_todaysCost.setText(String.format("%.3f", getDailyCost()));
+                txt_monthlyEst.setText(String.format("%.3f", getDailyCost()*30));
             }
 
             @Override
@@ -132,7 +141,7 @@ public class HomeFragment extends Fragment {
 
             //TODO change the threshold
             cd_onIndicatorList[i].setVisibility(View.INVISIBLE);
-            if (currAppliance.getLastReading().getDoubleReading() > 100) {
+            if (currAppliance.isCurrentlyOn()) {
                 cd_onIndicatorList[i].setVisibility(View.VISIBLE);
             }
 
@@ -166,6 +175,16 @@ public class HomeFragment extends Fragment {
             cd_cardslist[i].setVisibility(View.INVISIBLE);
             cd_onIndicatorList[i].setVisibility(View.INVISIBLE);
         }
+    }
+
+    private double getDailyCost(){
+        double dailyCost = 0;
+
+        for (ApplianceInfo currApp: m_ApplianceInfo) {
+            dailyCost += currApp.getDailyPrice();
+        }
+
+        return dailyCost;
     }
 }
 

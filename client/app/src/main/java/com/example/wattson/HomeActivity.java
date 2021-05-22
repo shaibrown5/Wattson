@@ -13,7 +13,9 @@ import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.main_fragments.HomeFragment;
 import com.example.wattson.main_fragments.SettingsFragment;
 import com.example.wattson.main_fragments.StatisticsFragment;
+import com.example.wattson.main_fragments.StatisticsPieFragment;
 import com.example.wattson.main_fragments.TodaysActivityFragment;
+import com.example.wattson.main_fragments.UtilityInfoFragment;
 
 import java.util.ArrayList;
 
@@ -46,8 +48,8 @@ public class HomeActivity extends AppCompatActivity {
 
                 switch (item.getId()){
                     case 1:
+//                        fragment = new StatisticsPieFragment();
                         fragment = new HomeFragment();
-                        //fragment = new UtilityInfoFragment();
                         break;
                     case 2:
                         fragment = new TodaysActivityFragment();

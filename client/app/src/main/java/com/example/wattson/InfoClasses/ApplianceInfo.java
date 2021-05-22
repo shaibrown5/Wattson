@@ -46,7 +46,41 @@ public class ApplianceInfo implements Parcelable {
     public Boolean isCurrentlyOn(){
         IndividualReading last = getLastReading();
 
-        return (last.getDoubleReading() > 100);
+        return (last.getDoubleReading() > 20);
+    }
+
+
+    /**
+     * This method calcs the daily cost
+     * the equations : aum all the readings,
+     * divide by 3600 (convert to watt per hour [WPH])
+     * and multiply by 0.6 (price of WPH in NIS  = 1/6000
+     *
+     */
+    public void updateDailyCost(){
+        double totalReading = 0;
+
+        for (IndividualReading currRead: m_ReadingList) {
+            totalReading += currRead.getDoubleReading();
+        }
+
+        m_dailyPrice = round(totalReading/6000.0, 3);
+    }
+
+
+    /**
+     * round a double to @places behind the 0
+     * @param value
+     * @param places
+     * @return
+     */
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
     public static final Creator<ApplianceInfo> CREATOR = new Creator<ApplianceInfo>() {

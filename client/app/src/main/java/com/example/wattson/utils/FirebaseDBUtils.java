@@ -53,12 +53,14 @@ public class FirebaseDBUtils {
                         String timestamp = childNode.getKey().toString();
                         String power = childNode.getValue().toString();
 
-                        if(!timestamp.equals("temp")){
+                        if(!timestamp.equals("history")){
                             individualReadingList.add(new IndividualReading(timestamp, power));
                         }
                     }
 
-                    applianceInfoList.add(new ApplianceInfo(applianceName, individualReadingList));
+                    ApplianceInfo temp = new ApplianceInfo(applianceName, individualReadingList);
+                    temp.updateDailyCost();
+                    applianceInfoList.add(temp);
                 }
 
                 i_dataStatus.DataIsLoaded(applianceInfoList);
