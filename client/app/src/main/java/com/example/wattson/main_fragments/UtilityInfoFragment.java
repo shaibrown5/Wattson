@@ -39,6 +39,7 @@ public class UtilityInfoFragment extends Fragment {
     private TextView on_OnIndicator;
     private TextView m_currentTimePicked;
     private TextView txt_sum;
+    private TextView img_symbol;
     private StateTime m_StateTime;
     private HomeActivity ac_HomeActivity;
     private ApplianceInfo m_currentAppliance;
@@ -82,9 +83,11 @@ public class UtilityInfoFragment extends Fragment {
         txt_Year = (TextView) getView().findViewById(R.id.textViewYear);
         txt_header = (TextView) getView().findViewById(R.id.textViewUtilPageTitle);
         txt_sum = (TextView) getView().findViewById(R.id.textViewUTodaysAmmount);
+        img_symbol = (TextView) getView().findViewById(R.id.textViewUtilityHeaderSymbol);
         on_OnIndicator = (TextView) getView().findViewById(R.id.onIndicatorUtilInfo);
 
         txt_header.setText(m_currentAppliance.getApplianceName());
+        img_symbol.setCompoundDrawablesWithIntrinsicBounds(m_currentAppliance.getItemSymbol(),0,0,0);
         m_currentTimePicked = txt_Day;
         m_StateTime = StateTime.DAY;
         setCurrentTimePicked();

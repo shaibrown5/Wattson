@@ -148,13 +148,16 @@ public class HomeFragment extends Fragment {
      * This method sets up the layout according to the infor received from the db
      */
     private void setLayout() {
+        int[] symbolsArray = new int[]{R.drawable.ic_air_conditioner, R.drawable.ic_oven, R.drawable.ic_dish_washer, R.drawable.ic_electric_kettle, R.drawable.ic_washing_machine};
+        int[] blackSymbolarray = new int[]{R.drawable.ic_black_ac, R.drawable.ic_black_oven, R.drawable.ic_black_dish, R.drawable.ic_black_kettle, R.drawable.ic_black_washing};
+
         for (int i = 0; i < m_ApplianceInfo.size(); i++) {
             ApplianceInfo currAppliance = m_ApplianceInfo.get(i);
             cd_cardslist[i].setVisibility(View.VISIBLE);
-            img_iconCardList[i].setText(currAppliance.getApplianceName());
             txt_nameCardList[i].setText(currAppliance.getApplianceName());
+            img_iconCardList[i].setCompoundDrawablesWithIntrinsicBounds(symbolsArray[i],0,0,0);
+            currAppliance.setItemSymbol(blackSymbolarray[i]);
 
-            //TODO change the threshold
             cd_onIndicatorList[i].setVisibility(View.INVISIBLE);
             if (currAppliance.isCurrentlyOn()) {
                 cd_onIndicatorList[i].setVisibility(View.VISIBLE);
@@ -201,6 +204,7 @@ public class HomeFragment extends Fragment {
 
         return dailyCost;
     }
+
 }
 
 
