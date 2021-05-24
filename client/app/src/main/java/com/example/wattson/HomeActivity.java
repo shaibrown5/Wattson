@@ -22,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     MeowBottomNavigation bottomNavigation;
     private static final String TAG = "HomePage";
     private ArrayList<ApplianceInfo> m_ApplianceInfo;
+    private boolean m_isFirstTime = true;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -103,5 +104,8 @@ public class HomeActivity extends AppCompatActivity {
     public void setApplianceInfo(ArrayList<ApplianceInfo> newInfoArray){
         this.m_ApplianceInfo = newInfoArray;
     }
+
+    public boolean getIsFirstTime(){return m_isFirstTime; }
+    public void setIsFirstTime(){m_isFirstTime = false;}
 
 }

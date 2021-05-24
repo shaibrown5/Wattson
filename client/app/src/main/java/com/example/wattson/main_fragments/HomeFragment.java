@@ -18,6 +18,7 @@ import com.example.wattson.HomeActivity;
 import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.R;
 import com.example.wattson.utils.FirebaseDBUtils;
+import com.example.wattson.utils.LoadingDialog;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -63,6 +64,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // this is the loading bar
+        LoadingDialog loadingDialog = new LoadingDialog(HomeFragment.this);
+        if (ac_HomeActivity.getIsFirstTime()){
+            loadingDialog.startLoadingDialog();
+        }
+
+
         txt_todaysCost = (MaterialTextView) getView().findViewById(R.id.textViewUTodaysAmmount);
         txt_monthlyEst = (MaterialTextView) getView().findViewById(R.id.textViewEstAmmount);
 
@@ -105,6 +113,13 @@ public class HomeFragment extends Fragment {
                 m_ApplianceInfo = info;
 
                 setLayout();
+                try{
+                    loadingDialog.dismissDialog();
+                    ac_HomeActivity.setIsFirstTime();
+                }catch (NullPointerException n){
+                    Log.e("[LOADING]", "loading was dismissed");
+                }
+
 
                 ac_HomeActivity.setApplianceInfo(m_ApplianceInfo);
                 txt_todaysCost.setText(String.format("%.3f", getDailyCost()));
