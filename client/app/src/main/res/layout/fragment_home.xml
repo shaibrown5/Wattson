@@ -329,7 +329,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="insert pic">
+                        android:text=""
+                        android:paddingLeft="18sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -373,7 +374,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="insert pic">
+                        android:text=""
+                        android:paddingLeft="18sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -418,7 +420,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="insert pic">
+                        android:text=""
+                        android:paddingLeft="18sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -473,7 +476,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="insert pic">
+                        android:text=""
+                        android:paddingLeft="18sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -518,7 +522,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="insert pic">
+                        android:text=""
+                        android:paddingLeft="18sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
