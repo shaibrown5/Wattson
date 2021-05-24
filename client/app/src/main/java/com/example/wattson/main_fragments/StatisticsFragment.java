@@ -243,7 +243,7 @@ public class StatisticsFragment extends Fragment {
         xAxis.setDrawAxisLine(false);
 //        xAxis.setGranularity(1f);
 //        xAxis.setLabelCount(m_barLabelsNames.size());
-        bc_BarChart.animateY(1600);
+        bc_BarChart.animateY(1000);
         bc_BarChart.invalidate();
     }
 
