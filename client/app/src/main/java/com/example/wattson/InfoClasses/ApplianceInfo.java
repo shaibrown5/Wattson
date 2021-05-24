@@ -3,26 +3,31 @@ package com.example.wattson.InfoClasses;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.sql.Array;
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplianceInfo implements Parcelable {
 
     private String m_ApplianceName;
     private double m_dailyPrice;
-    private int m_numActivations;
     private int m_numReadingOn;
     private List<IndividualReading> m_ReadingList;
+    private List<TimeData> m_timeList;
 
     protected ApplianceInfo(Parcel in) {
         m_ApplianceName = in.readString();
         m_dailyPrice = in.readDouble();
         m_ReadingList = in.createTypedArrayList(IndividualReading.CREATOR);
+        m_timeList = in.createTypedArrayList(TimeData.CREATOR);
     }
 
     public List<IndividualReading> getReadingList() { return m_ReadingList; }
     public String getApplianceName() { return m_ApplianceName; }
     public double getDailyPrice() { return m_dailyPrice; }
-    public int getNumActivations() {return m_numActivations;}
+    public int getNumActivations() {return m_timeList.size();}
+    public List<TimeData> getTimeList(){return m_timeList;}
 
     public void setReadingList(List<IndividualReading> m_ReadingList) { this.m_ReadingList = m_ReadingList; }
     public void setApplianceName(String m_Name) { this.m_ApplianceName = m_Name; }
@@ -64,13 +69,22 @@ public class ApplianceInfo implements Parcelable {
     public void updateCostAndActivationsNum(){
         double totalReading = 0;
         boolean isOn = startOn();
+        List<TimeData> tmpList = new ArrayList<>();
+        long startTime = -1;
+        long endTime = -1;
 
         for (IndividualReading currRead: m_ReadingList) {
             totalReading += currRead.getDoubleReading();
             boolean currStatus = currRead.getDoubleReading() > 20;
 
+            //if was off and is now on
             if(!isOn && currStatus){
-                m_numActivations ++;
+                startTime = currRead.getLongTimeStamp();
+            }
+            // if was on and is now off
+            else if(isOn && !currStatus){
+                endTime = currRead.getLongTimeStamp();
+                tmpList.add(new TimeData(startTime, endTime));
             }
 
             if(currStatus){
@@ -80,10 +94,13 @@ public class ApplianceInfo implements Parcelable {
             isOn = currStatus;
         }
 
+        // if is currently on
         if(isCurrentlyOn()){
-            m_numActivations++;
+            tmpList.add(new TimeData(startTime));
+
         }
 
+        m_timeList = tmpList;
         m_dailyPrice = round(totalReading/6000.0, 3);
     }
 
@@ -147,5 +164,6 @@ public class ApplianceInfo implements Parcelable {
         parcel.writeString(m_ApplianceName);
         parcel.writeDouble(m_dailyPrice);
         parcel.writeTypedList(m_ReadingList);
+        parcel.writeTypedList(m_timeList);
     }
 }
