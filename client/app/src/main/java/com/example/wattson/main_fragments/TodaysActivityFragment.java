@@ -57,9 +57,6 @@ public class TodaysActivityFragment extends Fragment {
         m_rView = getView().findViewById(R.id.recyclerActivityLog);
 
 
-//        String[] names = {"Kettle", "Oven"};
-//        String[] onTime = {"8:00 am", "9:15 am"};
-//        String[] offTime = {"8:23 am", "11:15 am"};
         List<String> names = new ArrayList<>();
         List<String> onTime = new ArrayList<>();
         List<String> offTime = new ArrayList<>();
