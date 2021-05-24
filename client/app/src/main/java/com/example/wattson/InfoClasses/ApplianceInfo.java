@@ -15,6 +15,7 @@ public class ApplianceInfo implements Parcelable {
     private int m_numReadingOn;
     private List<IndividualReading> m_ReadingList;
     private List<TimeData> m_timeList;
+    private int m_itemSymbol;
 
     protected ApplianceInfo(Parcel in) {
         m_ApplianceName = in.readString();
@@ -28,10 +29,12 @@ public class ApplianceInfo implements Parcelable {
     public double getDailyPrice() { return m_dailyPrice; }
     public int getNumActivations() {return m_timeList.size();}
     public List<TimeData> getTimeList(){return m_timeList;}
+    public int getItemSymbol(){return m_itemSymbol;}
 
     public void setReadingList(List<IndividualReading> m_ReadingList) { this.m_ReadingList = m_ReadingList; }
     public void setApplianceName(String m_Name) { this.m_ApplianceName = m_Name; }
     public void setDailyPrice(double dailyPrice){this.m_dailyPrice = dailyPrice;}
+    public void setItemSymbol(int symbol){m_itemSymbol = symbol;}
 
 
 
