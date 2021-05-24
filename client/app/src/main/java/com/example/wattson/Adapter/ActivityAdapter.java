@@ -11,14 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wattson.R;
 
+import java.util.List;
+
 public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.MyViewHolder> {
 
-    private String[] m_startTimes;
-    private String[] m_endTimes;
-    private String[] m_names;
+    private List<String> m_startTimes;
+    private List<String> m_endTimes;
+    private List<String> m_names;
     Context context;
 
-    public ActivityAdapter(Context ct, String[] names, String[] startTimes, String[] endTimes){
+    public ActivityAdapter(Context ct, List<String> names, List<String> startTimes, List<String> endTimes){
         context = ct;
         m_startTimes = startTimes;
         m_names = names;
@@ -35,15 +37,15 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.startTime.setText(m_startTimes[position]);
-        holder.endTime.setText(m_endTimes[position]);
-        holder.nameOn.setText(String.format("%s ON", m_names[position]));
-        holder.nameOff.setText(String.format("%s OFF", m_names[position]));
+        holder.startTime.setText(m_startTimes.get(position));
+        holder.endTime.setText(m_endTimes.get(position));
+        holder.nameOn.setText(String.format("%s ON", m_names.get(position)));
+        holder.nameOff.setText(String.format("%s OFF", m_names.get(position)));
     }
 
     @Override
     public int getItemCount() {
-        return m_names.length;
+        return m_names.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{

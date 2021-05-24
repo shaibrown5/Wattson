@@ -13,9 +13,7 @@ import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.main_fragments.HomeFragment;
 import com.example.wattson.main_fragments.SettingsFragment;
 import com.example.wattson.main_fragments.StatisticsFragment;
-import com.example.wattson.main_fragments.StatisticsPieFragment;
 import com.example.wattson.main_fragments.TodaysActivityFragment;
-import com.example.wattson.main_fragments.UtilityInfoFragment;
 
 import java.util.ArrayList;
 
@@ -24,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     MeowBottomNavigation bottomNavigation;
     private static final String TAG = "HomePage";
     private ArrayList<ApplianceInfo> m_ApplianceInfo;
+    private boolean m_isFirstTime = true;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -105,5 +104,8 @@ public class HomeActivity extends AppCompatActivity {
     public void setApplianceInfo(ArrayList<ApplianceInfo> newInfoArray){
         this.m_ApplianceInfo = newInfoArray;
     }
+
+    public boolean getIsFirstTime(){return m_isFirstTime; }
+    public void setIsFirstTime(){m_isFirstTime = false;}
 
 }
