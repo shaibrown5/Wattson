@@ -16,10 +16,12 @@ import com.example.wattson.Adapter.ActivityAdapter;
 import com.example.wattson.Adapter.UtilityAdapter;
 import com.example.wattson.HomeActivity;
 import com.example.wattson.InfoClasses.ApplianceInfo;
+import com.example.wattson.InfoClasses.TimeData;
 import com.example.wattson.R;
 import com.example.wattson.utils.SpacingItemDecorator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TodaysActivityFragment extends Fragment {
 
@@ -55,9 +57,23 @@ public class TodaysActivityFragment extends Fragment {
         m_rView = getView().findViewById(R.id.recyclerActivityLog);
 
 
-        String[] names = {"Kettle", "Oven"};
-        String[] onTime = {"8:00 am", "9:15 am"};
-        String[] offTime = {"8:23 am", "11:15 am"};
+//        String[] names = {"Kettle", "Oven"};
+//        String[] onTime = {"8:00 am", "9:15 am"};
+//        String[] offTime = {"8:23 am", "11:15 am"};
+        List<String> names = new ArrayList<>();
+        List<String> onTime = new ArrayList<>();
+        List<String> offTime = new ArrayList<>();
+
+        //populate the list
+        for (ApplianceInfo currApp: m_ApplianceInfo) {
+            String name = currApp.getApplianceName();
+
+            for (TimeData currTime : currApp.getTimeList()) {
+                names.add(name);
+                onTime.add(currTime.getStartTime());
+                offTime.add(currTime.getEndTime());
+            }
+        }
 
         ActivityAdapter myAdapter = new ActivityAdapter(getContext(), names, onTime, offTime);
         m_rView.setAdapter(myAdapter);
