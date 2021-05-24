@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/assistant_regular"
-        android:text="Your daily enery tracker"
+        android:text="Your daily energy tracker"
         android:textColor="@color/font_gray"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
