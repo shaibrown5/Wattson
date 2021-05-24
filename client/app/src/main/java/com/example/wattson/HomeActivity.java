@@ -13,9 +13,7 @@ import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.main_fragments.HomeFragment;
 import com.example.wattson.main_fragments.SettingsFragment;
 import com.example.wattson.main_fragments.StatisticsFragment;
-import com.example.wattson.main_fragments.StatisticsPieFragment;
 import com.example.wattson.main_fragments.TodaysActivityFragment;
-import com.example.wattson.main_fragments.UtilityInfoFragment;
 
 import java.util.ArrayList;
 
