@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="350dp"
+    android:layout_gravity="center"
+    android:background="@drawable/info_background">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textInfo"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Here you pair your Wattson plug with an appliance.\n\n 1.Click an Item to pair it 2.Click it again to cancel\n\nIf you have less than 5 plugs, simply click skip after choosing the amount to connect"
+        android:textSize="20dp"
+        android:fontFamily="@font/assistant_regular"
+        android:textColor="@color/font_gray"
+        android:gravity="center"/>
+
+
+
+</RelativeLayout>

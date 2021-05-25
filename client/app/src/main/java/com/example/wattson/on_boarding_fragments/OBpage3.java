@@ -1,6 +1,8 @@
 package com.example.wattson.on_boarding_fragments;
 
+import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,6 +28,8 @@ public class OBpage3 extends Fragment {
     private TextView txt_skip;
     private TextView txt_plugNumber;
     private MaterialButton bt_clickedButton;
+    private MaterialButton bt_info;
+    private Dialog m_infoDialog;
     private boolean m_isLast = false;
     private boolean m_optionPicked = false;
     private boolean m_hasSkipped = false;
@@ -66,7 +70,9 @@ public class OBpage3 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        
+        bt_info = (MaterialButton) getView().findViewById(R.id.buttonInfo);
+        m_infoDialog = new Dialog(getContext());
         bt_doneButton = (Button) getView().findViewById(R.id.button3Done);
         txt_skip = (TextView) getView().findViewById(R.id.textSkip);
         txt_plugNumber = (TextView) getView().findViewById(R.id.textPlugNumber);
@@ -271,6 +277,19 @@ public class OBpage3 extends Fragment {
                 }
             }
         });
+        
+        bt_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                m_infoDialog.setContentView(R.layout.info_popup);
+                m_infoDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                m_infoDialog.show();
+            }
+        });
+
+    }
+
+    private void openDialog() {
 
     }
 
