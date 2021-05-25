@@ -76,7 +76,7 @@ public class TodaysActivityFragment extends Fragment {
         m_rView.setAdapter(myAdapter);
         m_rView.setLayoutManager(new LinearLayoutManager(getContext()));
         // change this to create a larger margin between the items in recycle view
-        SpacingItemDecorator itemDecor = new SpacingItemDecorator(30);
+        SpacingItemDecorator itemDecor = new SpacingItemDecorator(10);
         m_rView.addItemDecoration(itemDecor);
 
         

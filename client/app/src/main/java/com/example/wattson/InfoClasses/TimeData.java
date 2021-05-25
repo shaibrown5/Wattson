@@ -33,7 +33,7 @@ public class TimeData implements Parcelable {
      * @return
      */
     private String convertTime(long i_timestamp){
-        SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm");
         String date = sdf.format(new java.util.Date (i_timestamp*1000));
 
         return date;
