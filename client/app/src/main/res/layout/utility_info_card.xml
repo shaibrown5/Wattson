@@ -13,8 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/new_background_blue"
-        app:strokeWidth="1dp">
+>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="299dp"
@@ -47,6 +46,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewUtilityHeader"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <View
+                android:layout_width="220dp"
+                android:layout_height="1dp"
+                android:background="@color/new_background_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
