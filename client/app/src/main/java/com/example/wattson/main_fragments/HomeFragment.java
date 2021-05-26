@@ -123,7 +123,7 @@ public class HomeFragment extends Fragment {
 
                 ac_HomeActivity.setApplianceInfo(m_ApplianceInfo);
                 txt_todaysCost.setText(String.format("%.3f", getDailyCost()));
-                txt_monthlyEst.setText(String.format("%.3f", getDailyCost()*30));
+                txt_monthlyEst.setText(String.format("%.2f", getDailyCost()*30));
             }
 
             @Override

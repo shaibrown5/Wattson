@@ -25,6 +25,7 @@ import com.example.wattson.HomeActivity;
 import com.example.wattson.InfoClasses.ApplianceInfo;
 import com.example.wattson.R;
 import com.example.wattson.utils.SpacingItemDecorator;
+import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class UtilityInfoFragment extends Fragment {
     private TextView txt_header;
     private TextView on_OnIndicator;
     private TextView m_currentTimePicked;
-    private TextView txt_sum;
+    private MaterialTextView txt_sum;
     private TextView img_symbol;
     private StateTime m_StateTime;
     private HomeActivity ac_HomeActivity;
@@ -82,7 +83,7 @@ public class UtilityInfoFragment extends Fragment {
         txt_Month= (TextView) getView().findViewById(R.id.textViewMonth);
         txt_Year = (TextView) getView().findViewById(R.id.textViewYear);
         txt_header = (TextView) getView().findViewById(R.id.textViewUtilPageTitle);
-        txt_sum = (TextView) getView().findViewById(R.id.textViewUTodaysAmmount);
+        txt_sum = (MaterialTextView) getView().findViewById(R.id.textViewUTodaysAmmount);
         img_symbol = (TextView) getView().findViewById(R.id.textViewUtilityHeaderSymbol);
         on_OnIndicator = (TextView) getView().findViewById(R.id.onIndicatorUtilInfo);
 

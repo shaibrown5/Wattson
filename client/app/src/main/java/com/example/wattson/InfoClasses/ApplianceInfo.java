@@ -104,7 +104,7 @@ public class ApplianceInfo implements Parcelable {
         }
 
         m_timeList = tmpList;
-        m_dailyPrice = round(totalReading/6000.0, 3);
+        m_dailyPrice = round(totalReading/6000000.0, 3);
     }
 
 

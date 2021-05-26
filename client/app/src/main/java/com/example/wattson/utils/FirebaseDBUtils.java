@@ -52,7 +52,7 @@ public class FirebaseDBUtils {
                         String timestamp = childNode.getKey().toString();
                         String power = childNode.getValue().toString();
 
-                        if(!timestamp.equals("history")){
+                        if(!timestamp.equals("history") && !timestamp.equals("temp")){
                             individualReadingList.add(new IndividualReading(timestamp, power));
                         }
                     }

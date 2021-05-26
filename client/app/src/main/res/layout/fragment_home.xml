@@ -64,7 +64,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:drawableRightCompat="@drawable/ic_israel_shekel_currency_symbol">
+                app:drawableLeftCompat="@drawable/ic_israel_shekel_currency_symbol">
 
             </com.google.android.material.textview.MaterialTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -125,7 +125,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:drawableRightCompat="@drawable/ic_israel_shekel_currency_symbol">
+                app:drawableLeftCompat="@drawable/ic_israel_shekel_currency_symbol">
 
             </com.google.android.material.textview.MaterialTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -330,7 +330,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -375,7 +375,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -421,7 +421,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -477,7 +477,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -523,7 +523,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -545,5 +545,17 @@
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:text=""
+        app:drawableStartCompat="@drawable/ic_arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
