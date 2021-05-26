@@ -64,7 +64,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:drawableRightCompat="@drawable/ic_israel_shekel_currency_symbol">
+                app:drawableLeftCompat="@drawable/ic_israel_shekel_currency_symbol">
 
             </com.google.android.material.textview.MaterialTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -125,7 +125,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:drawableRightCompat="@drawable/ic_israel_shekel_currency_symbol">
+                app:drawableLeftCompat="@drawable/ic_israel_shekel_currency_symbol">
 
             </com.google.android.material.textview.MaterialTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
