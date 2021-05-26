@@ -330,7 +330,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -375,7 +375,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -421,7 +421,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -477,7 +477,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -523,7 +523,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=""
-                        android:paddingLeft="18sp">
+                        android:paddingLeft="22dp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
