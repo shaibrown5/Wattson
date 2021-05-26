@@ -18,7 +18,7 @@ https://shovalitzhak.wixsite.com/mysite-2
 #### Computer science students:
 - Ofek Tavor
 - Shai Brown
-#### Communication and Media studies student
+#### Communication and Media studies students:
 - Shoval Itzhak
 - Adi Yakir
 #### Psychology student:
