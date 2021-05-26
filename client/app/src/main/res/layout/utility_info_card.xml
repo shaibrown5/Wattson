@@ -23,7 +23,7 @@
                 android:id="@+id/textViewUtilityHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="13dp"
                 android:fontFamily="@font/assistant_regular"
                 android:gravity="center"
                 android:text="TextView"
@@ -37,16 +37,14 @@
                 android:id="@+id/textViewUtilityBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="6dp"
                 android:fontFamily="@font/assistant_regular"
                 android:gravity="center"
                 android:paddingBottom="6dp"
                 android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewUtilityHeader"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewUtilityHeader" />
 
             <View
                 android:layout_width="220dp"
