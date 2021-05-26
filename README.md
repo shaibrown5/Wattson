@@ -1,4 +1,3 @@
-# **Wattson**
 ![Image of Wattson](https://static.wixstatic.com/media/47ffc3_00b481babaaf41fa91e140839e6d59bb~mv2.png/v1/fill/w_522,h_269,al_c,lg_1,q_90/47ffc3_00b481babaaf41fa91e140839e6d59bb~mv2.webp)
 
 ## **About Wattson:**
