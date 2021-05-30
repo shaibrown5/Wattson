@@ -6,20 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-
-    <!-- Welcome to Wattson! -->
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="521dp"
-        android:layout_height="615dp"
-        android:foregroundGravity="top"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="445dp"
+        android:layout_height="531dp"
+        android:layout_marginTop="91dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.246"
-        app:srcCompat="@mipmap/ic_android_wattson_symbol" />
-
+        app:srcCompat="@drawable/wattsone_symbol_final" />
 </androidx.constraintlayout.widget.ConstraintLayout>
