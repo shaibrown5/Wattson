@@ -17,7 +17,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="299dp"
-            android:layout_height="69dp">
+            android:layout_height="78dp">
 
             <TextView
                 android:id="@+id/textViewUtilityHeader"
