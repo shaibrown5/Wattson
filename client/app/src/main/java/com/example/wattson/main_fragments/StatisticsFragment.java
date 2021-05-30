@@ -259,11 +259,11 @@ public class StatisticsFragment extends Fragment {
         p_pieChart.setDragDecelerationFrictionCoef(0.95f);
         p_pieChart.setDrawHoleEnabled(false);
         m_pieEntryArrayList.clear();
-        m_pieEntryArrayList.add(new PieEntry(10, "1"));
-        m_pieEntryArrayList.add(new PieEntry(20f, "2"));
-        m_pieEntryArrayList.add(new PieEntry(30f, "3"));
-        m_pieEntryArrayList.add(new PieEntry(25f, "4"));
-        m_pieEntryArrayList.add(new PieEntry(15, "5"));
+        m_pieEntryArrayList.add(new PieEntry(10, "Ac"));
+        m_pieEntryArrayList.add(new PieEntry(20f, "Oven"));
+        m_pieEntryArrayList.add(new PieEntry(15f, "dish washer"));
+        m_pieEntryArrayList.add(new PieEntry(40f, "kettle"));
+        m_pieEntryArrayList.add(new PieEntry(15, "washing"));
 
         p_pieChart.animateY(1500, Easing.EaseInOutCubic);
 
