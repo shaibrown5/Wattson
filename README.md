@@ -10,7 +10,7 @@ The Wattson app reads the usage data in real-time, allowing the user to make dec
 Wattson also allows the user to see their usage history. In addition to daily data, each appliance usage can show but also weekly, monthly and yearly usage habits!
 
 
-> **_NOTE:_**  This is an MVP as part of the The Interdisciplinary Center Herzliya's Media Innovation Lab. some features, such as log in authentication and logic are not implemented as we concentrated on building the product.
+> **_NOTE:_**  This is an MVP as part of the The Interdisciplinary Center Herzliya's Media Innovation Lab. Some features, such as log in authentication and logic are not implemented as we concentrated on building the product.
 > 
 > For more information visit http://milab.idc.ac.il/
 
