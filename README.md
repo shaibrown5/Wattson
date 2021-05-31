@@ -9,6 +9,11 @@ Wattson is a hardware/software IoT solution consisting of a smart-plug and mobil
 The Wattson app reads the usage data in real-time, allowing the user to make decisions based on real-time information on their electrical usage habits, such as the number of activations and running time of certain appliances, as well as estimations about future trends and costs. 
 Wattson also allows the user to see their usage history. In addition to daily data, each appliance usage can show but also weekly, monthly and yearly usage habits!
 
+
+> **_NOTE:_**  This is an MVP as part of the The Interdisciplinary Center Herzliya's Media Innovation Lab. some features, such as log in authentication and logic are not implemented as we concentrated on building the product.
+> 
+> For more information visit http://milab.idc.ac.il/
+
 ## Our production blog:
 https://shovalitzhak.wixsite.com/mysite-2
 
