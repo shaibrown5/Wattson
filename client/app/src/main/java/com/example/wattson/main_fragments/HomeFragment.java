@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -35,7 +36,8 @@ public class HomeFragment extends Fragment {
     // the on symbol cards
     private MaterialCardView[] cd_onIndicatorList;
 
-    private MaterialTextView txt_todaysCost;
+    private MaterialTextView txt_percentChange;
+    private final double m_lastMonthTotal = 500.75;
     private MaterialTextView txt_monthlyEst;
     private ArrayList<ApplianceInfo> m_ApplianceInfo = new ArrayList<>();
     private HomeActivity ac_HomeActivity;
@@ -71,7 +73,7 @@ public class HomeFragment extends Fragment {
         }
 
 
-        txt_todaysCost = (MaterialTextView) getView().findViewById(R.id.textViewUTodaysAmmount);
+        txt_percentChange = (MaterialTextView) getView().findViewById(R.id.textViewChangePercent);
         txt_monthlyEst = (MaterialTextView) getView().findViewById(R.id.textViewEstAmmount);
 
         // cards of the items
@@ -122,8 +124,10 @@ public class HomeFragment extends Fragment {
 
 
                 ac_HomeActivity.setApplianceInfo(m_ApplianceInfo);
-                txt_todaysCost.setText(String.format("%.3f", getDailyCost()));
-                txt_monthlyEst.setText(String.format("%.2f", getDailyCost()*30));
+
+                double monthEst = getDailyCost()*30;
+                setPercentChange(monthEst);
+                txt_monthlyEst.setText(String.format("%.2f", monthEst));
             }
 
             @Override
@@ -203,6 +207,24 @@ public class HomeFragment extends Fragment {
         }
 
         return dailyCost;
+    }
+
+    private void setPercentChange(double i_monthEst){
+        double percentage = (i_monthEst/m_lastMonthTotal)*100;
+        String ammount = String.format("%.2f", percentage);
+
+
+        int color = ac_HomeActivity.getResources().getColor(R.color.on_green);
+        if (percentage>1){
+            color = ac_HomeActivity.getResources().getColor(R.color.iconcard1);
+            ammount = "+" + ammount + " %";
+        }
+        else{
+            ammount = "-" + ammount + " %";
+        }
+
+        txt_percentChange.setText(ammount);
+        txt_percentChange.setTextColor(color);
     }
 
 }
