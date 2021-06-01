@@ -1,9 +1,11 @@
 package com.example.wattson.InfoClasses;
 
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TimeData implements Parcelable {
     private String m_startTime;
@@ -33,8 +35,15 @@ public class TimeData implements Parcelable {
      * @return
      */
     private String convertTime(long i_timestamp){
-        SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm");
-        String date = sdf.format(new java.util.Date (i_timestamp*1000));
+
+//        SimpleDateFormat dayFormatter = new SimpleDateFormat("dd/MM/yyyy ");
+//        int day = Integer.valueOf(dayFormatter.format(new Date(i_timestamp*1000)));
+//
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//        Date d = new Date();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String date = sdf.format(new Date (i_timestamp*1000));
 
         return date;
     }
