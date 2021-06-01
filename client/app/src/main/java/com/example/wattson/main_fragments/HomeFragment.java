@@ -148,8 +148,8 @@ public class HomeFragment extends Fragment {
      * This method sets up the layout according to the infor received from the db
      */
     private void setLayout() {
-        int[] symbolsArray = new int[]{R.drawable.ic_air_conditioner, R.drawable.ic_oven, R.drawable.ic_dish_washer, R.drawable.ic_electric_kettle, R.drawable.ic_washing_machine};
-        int[] blackSymbolarray = new int[]{R.drawable.ic_black_ac, R.drawable.ic_black_oven, R.drawable.ic_black_dish, R.drawable.ic_black_kettle, R.drawable.ic_black_washing};
+        int[] symbolsArray = new int[]{R.drawable.ic_air_conditioner, R.drawable.ic_oven, R.drawable.ic_controller, R.drawable.ic_electric_kettle, R.drawable.ic_radiator};
+        int[] blackSymbolarray = new int[]{R.drawable.ic_black_ac, R.drawable.ic_black_oven, R.drawable.ic_black_controller, R.drawable.ic_black_kettle, R.drawable.ic_black_radiator};
 
         for (int i = 0; i < m_ApplianceInfo.size(); i++) {
             ApplianceInfo currAppliance = m_ApplianceInfo.get(i);

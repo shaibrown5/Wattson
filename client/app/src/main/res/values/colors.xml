@@ -16,14 +16,14 @@
     <color name="nav_bar_main">#F3F3F3</color>
     <color name="nav_bar_icon">#939393</color>
     <color name="nav_bar_cirle">#DFE4F4</color>
-    <color name="card1">#20797A</color>
-    <color name="card2">#73C7CB</color>
-    <color name="card3">#CEE9E7</color>
-    <color name="card4">#9B8DB4</color>
-    <color name="card5">#DFC9E7</color>
-    <color name="iconcard1">#96cdca</color>
-    <color name="iconcard2">#c1e4e8</color>
-    <color name="iconcard3">#99cac5</color>
-    <color name="iconcard4">#dacfe8</color>
-    <color name="iconcard5">#b18ebe</color>
+    <color name="card1">#FADFDF</color>
+    <color name="card2">#F6CE91</color>
+    <color name="card3">#FAFFC5</color>
+    <color name="card4">#B3C0EA</color>
+    <color name="card5">#D8F2F1</color>
+    <color name="iconcard1">#d28484</color>
+    <color name="iconcard2">#d2a35c</color>
+    <color name="iconcard3">#e5dd8c</color>
+    <color name="iconcard4">#6e7fcc</color>
+    <color name="iconcard5">#7de2de</color>
 </resources>
