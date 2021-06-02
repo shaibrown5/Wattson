@@ -261,9 +261,9 @@ public class StatisticsFragment extends Fragment {
         m_pieEntryArrayList.clear();
         m_pieEntryArrayList.add(new PieEntry(10, "Ac"));
         m_pieEntryArrayList.add(new PieEntry(20f, "Oven"));
-        m_pieEntryArrayList.add(new PieEntry(15f, "dish washer"));
+        m_pieEntryArrayList.add(new PieEntry(15f, "Xbox"));
         m_pieEntryArrayList.add(new PieEntry(40f, "kettle"));
-        m_pieEntryArrayList.add(new PieEntry(15, "washing"));
+        m_pieEntryArrayList.add(new PieEntry(15, "radiator"));
 
         p_pieChart.animateY(1500, Easing.EaseInOutCubic);
 
