@@ -215,7 +215,7 @@ public class HomeFragment extends Fragment {
 
 
         int color = ac_HomeActivity.getResources().getColor(R.color.on_green);
-        if (percentage>1){
+        if (percentage>100){
             color = ac_HomeActivity.getResources().getColor(R.color.iconcard1);
             ammount = "+" + ammount + " %";
         }
