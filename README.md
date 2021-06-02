@@ -20,10 +20,10 @@ https://shovalitzhak.wixsite.com/mysite-2
 
 ## Creators:
 #### Computer science students:
-- Ofek Tavor
-- Shai Brown
+- Ofek Tavor - https://www.linkedin.com/in/ofek-tavor-a1a411197/
+- Shai Brown - https://www.linkedin.com/in/shai-brown
 #### Communication and Media studies students:
-- Shoval Itzhak
+- Shoval Itzhak - https://www.linkedin.com/in/shoval-itzhak-2b79671a7/
 - Adi Yakir
 #### Psychology student:
-- Liran Shati
+- Liran Shati - https://www.linkedin.com/in/liran-shati-b054431b3/
