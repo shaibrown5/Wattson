@@ -23,10 +23,11 @@ Wattson also allows the user to see their usage history. In addition to daily da
  <img src="client/app/src/main/res/drawable/pie_chart.jpg" width=25% height=25%/>
 </p>
 
-## Our Product website:
+## Website:
+### Product webstie
 https://shovalitzhak.wixsite.com/my-site
 
-## Out Product blog:
+### Product creation blog blog:
 https://shovalitzhak.wixsite.com/mysite-2
 
 ## Iot build:
