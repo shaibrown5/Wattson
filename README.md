@@ -14,6 +14,12 @@ Wattson also allows the user to see their usage history. In addition to daily da
 > 
 > For more information visit http://milab.idc.ac.il/
 
+
+ 
+ <p float="left">
+  <img src="client/app/src/main/res/drawable/wattson_Screen_shot.jpg" width=25% height=25%/>
+</p>
+
 ## Our Product website:
 https://shovalitzhak.wixsite.com/my-site
 
