@@ -18,6 +18,7 @@ Wattson also allows the user to see their usage history. In addition to daily da
  
  <p float="left">
  <img src="client/app/src/main/res/drawable/wattson_Screen_shot.jpg" width=25% height=25%/>
+ <img src="client/app/src/main/res/drawable/util.jpg" width=25% height=25%/>
  <img src="client/app/src/main/res/drawable/activity.jpg" width=25% height=25%/>
  <img src="client/app/src/main/res/drawable/bar_graph.jpg" width=25% height=25%/>
  <img src="client/app/src/main/res/drawable/pie_chart.jpg" width=25% height=25%/>
