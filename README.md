@@ -14,6 +14,12 @@ Wattson also allows the user to see their usage history. In addition to daily da
 > 
 > For more information visit http://milab.idc.ac.il/
 
+## Websites:
+### Product webstie
+https://shovalitzhak.wixsite.com/my-site
+
+### Product creation blog blog:
+https://shovalitzhak.wixsite.com/mysite-2
 
  
  <p float="left">
@@ -23,13 +29,6 @@ Wattson also allows the user to see their usage history. In addition to daily da
  <img src="client/app/src/main/res/drawable/bar_graph.jpg" width=25% height=25%/>
  <img src="client/app/src/main/res/drawable/pie_chart.jpg" width=25% height=25%/>
 </p>
-
-## Website:
-### Product webstie
-https://shovalitzhak.wixsite.com/my-site
-
-### Product creation blog blog:
-https://shovalitzhak.wixsite.com/mysite-2
 
 ## Iot build:
 The physical wall plug of the Wattson project, is composed of 2 main components:
